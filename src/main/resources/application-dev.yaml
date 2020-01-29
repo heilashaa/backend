@@ -1,0 +1,10 @@
+#swagger
+application:
+  api-info:
+    version: 1.0
+    title: Formicary REST
+    description: Crowdfunding platform
+    license: free
+    contact:
+      name: Alexandr Heilash
+      email: alexandr.heilash@gmail.com

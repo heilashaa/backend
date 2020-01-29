@@ -1,0 +1,37 @@
+#swagger
+application:
+  api-info:
+    version: 1.0
+    title: Formicary REST
+    description: Crowdfunding platform
+    license: free
+    contact:
+      name: Alexandr Heilash
+      email: alexandr.heilash@gmail.com
+
+spring:
+  jpa:
+    hibernate.ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/formicarytest?characterEncoding=utf-8&useUnicode=true
+    username: root
+    password: Aa123456
+  application:
+    name: Formicary REST
+  profiles:
+    active: '@activated.profile@'
+
+#  social:
+#    facebook:
+#      appId: 526762058188362
+#      appSecret: b01c60f2ef80147051454f4ceadcf1b6
+#    twitter:
+#      apiKey: uM2mWowm8xq8o6gp6buywbb51
+#      apiSecretKey: GSgplBaE8JJ3N0WkbZHZwRnNvvibTrWJw89AqzeFqBC3BvTgfp
+#      accessToken: 1219651235722203136-epn3m5DOQkTj3Ksna6po71medWwPN0
+#      accessTokenSecret: 5JQw4p4OgkTXdZTtvXYqDBc3vv1CvE2fkfWSij3pXJMp3

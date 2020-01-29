@@ -15,21 +15,13 @@ public class Campaign {
 
     @Id
     private Long id;
-
     private String name;
-
     private String description;
-
     private Integer targetAmount;
-
     private Date launchDate;
-
     private Date expirationDate;
-
     private User user;
-
     private Category category;
-
 
     @ManyToOne(optional = false)
     private Bonus bonuses;

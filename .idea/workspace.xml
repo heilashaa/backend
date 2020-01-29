@@ -2,15 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14c65636-5ba1-42ff-83c1-5a728e812be7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Bonus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Campaign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/BonusRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/CampaignRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/CategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/Constant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/SwaggerProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/exception/Error.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/exception/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/MessagaFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/MessageFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/infrastructure/CommonData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/infrastructure/CommonDataEnhancer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/rest/advice/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/swagger-api.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_aws_java_sdk_cloudformation_1_11_415.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_aws_java_sdk_core_1_11_415.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_aws_java_sdk_ec2_1_11_415.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_aws_java_sdk_kms_1_11_415.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_aws_java_sdk_s3_1_11_415.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_jmespath_java_1_11_415.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_10_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_10_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_aws_autoconfigure_2_2_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_aws_context_2_2_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_aws_core_2_2_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_aws_2_2_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__software_amazon_ion_ion_java_1_0_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formicary.iml" beforeDir="false" afterPath="$PROJECT_DIR$/formicary.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/FormicaryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/FormicaryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Bonus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Campaign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Campaign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/haapp/formicary/FormicaryApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,34 +76,6 @@
         <item name="formicary" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="formicary: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="formicary: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="bonus: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="formicary: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="campaign: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="formicary: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="category: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="formicary: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -105,18 +110,25 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-security-example-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.haapp.formicary.persistence.entity" />
     </key>
@@ -135,12 +147,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:formicary" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -157,7 +164,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580164348803</updated>
-      <workItem from="1580164351856" duration="4569000" />
+      <workItem from="1580164351856" duration="5122000" />
+      <workItem from="1580217089296" duration="6348000" />
+      <workItem from="1580243270708" duration="10251000" />
+      <workItem from="1580322951064" duration="1287000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1580208554076</created>
@@ -173,15 +183,36 @@
       <option name="project" value="LOCAL" />
       <updated>1580208587093</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="part of repo">
+      <created>1580216377956</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580216377956</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial" />
+    <MESSAGE value="part of repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="part of repo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="349" y="200" width="800" height="730" key="#Intentions" timestamp="1580214101718">
@@ -192,17 +223,61 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="100" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1580213644934" />
-    <state x="547" y="133" key="CommitChangelistDialog2" timestamp="1580208586954">
+    <state x="547" y="133" key="CommitChangelistDialog2" timestamp="1580216377885">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="547" y="133" key="CommitChangelistDialog2/61.24.1859.1056@61.24.1859.1056" timestamp="1580208586954" />
-    <state x="778" y="297" key="FileChooserDialogImpl" timestamp="1580208179125">
+    <state x="547" y="133" key="CommitChangelistDialog2/61.24.1859.1056@61.24.1859.1056" timestamp="1580216377885" />
+    <state x="778" y="297" key="FileChooserDialogImpl" timestamp="1580323006321">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="778" y="297" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1580208179125" />
-    <state x="136" y="117" width="1525" height="728" key="SettingsEditor" timestamp="1580164636511">
+    <state x="778" y="297" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1580323006321" />
+    <state width="1259" height="269" key="GridCell.Tab.0.bottom" timestamp="1580243253616">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="136" y="117" width="1525" height="728" key="SettingsEditor/61.24.1859.1056@61.24.1859.1056" timestamp="1580164636511" />
+    <state width="1259" height="269" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253616" />
+    <state width="1259" height="269" key="GridCell.Tab.0.center" timestamp="1580243253615">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state width="1259" height="269" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253615" />
+    <state width="1259" height="269" key="GridCell.Tab.0.left" timestamp="1580243253615">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state width="1259" height="269" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253615" />
+    <state width="1259" height="269" key="GridCell.Tab.0.right" timestamp="1580243253615">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state width="1259" height="269" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253615" />
+    <state width="1259" height="269" key="GridCell.Tab.1.bottom" timestamp="1580243253616">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state width="1259" height="269" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253616" />
+    <state width="1259" height="269" key="GridCell.Tab.1.center" timestamp="1580243253616">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state width="1259" height="269" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253616" />
+    <state width="1259" height="269" key="GridCell.Tab.1.left" timestamp="1580243253616">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state width="1259" height="269" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253616" />
+    <state width="1259" height="269" key="GridCell.Tab.1.right" timestamp="1580243253616">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state width="1259" height="269" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1580243253616" />
+    <state x="528" y="197" key="Maven.ArtifactSearchDialog" timestamp="1580243141357">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state x="528" y="197" key="Maven.ArtifactSearchDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1580243141357" />
+    <state x="136" y="117" width="1525" height="728" key="SettingsEditor" timestamp="1580242204182">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state x="136" y="117" width="1525" height="728" key="SettingsEditor/61.24.1859.1056@61.24.1859.1056" timestamp="1580242204182" />
+    <state x="64" y="298" key="new project wizard" timestamp="1580315683173">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state x="64" y="298" key="new project wizard/61.24.1859.1056@61.24.1859.1056" timestamp="1580315683173" />
+    <state x="209" y="246" key="run.anything.popup" timestamp="1580239998739">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state x="209" y="246" key="run.anything.popup/61.24.1859.1056@61.24.1859.1056" timestamp="1580239998739" />
   </component>
 </project>
