@@ -51,4 +51,5 @@ public class Campaign {
             joinColumns = @JoinColumn(name = "campaign_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private Set<Tag> tags;
+
 }
