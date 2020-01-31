@@ -1,8 +1,8 @@
 spring:
   jpa:
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: validate
     generate-ddl: true
-    show-sql: true
+    show-sql: false
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
   datasource:
@@ -12,5 +12,3 @@ spring:
     password: Aa123456
   application:
     name: Formicary REST
-  profiles:
-    active: '@activated.profile@'

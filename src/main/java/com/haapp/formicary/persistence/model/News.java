@@ -6,21 +6,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Bonus {
+public class News {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-    private String description;
-    private Integer amount;
+
+    private String text;
+    private String imageLink;
+    private LocalDateTime creationDate;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
-    @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "bonus_campaign_FK"))
+    @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "news_campaign_FK"))
     private Campaign campaign;
 }
