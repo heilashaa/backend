@@ -1,6 +1,6 @@
 package com.haapp.formicary.persistence.repository;
 
-import com.haapp.formicary.persistence.entity.Category;
+import com.haapp.formicary.persistence.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package com.haapp.formicary.rest.advice;
+package com.haapp.formicary.infrastructure.advice;
 
-import com.haapp.formicary.domain.exception.NotFoundException;
-import com.haapp.formicary.domain.exception.ServiceException;
+import com.haapp.formicary.infrastructure.exception.NotFoundException;
+import com.haapp.formicary.infrastructure.exception.ServiceException;
 import com.haapp.formicary.domain.service.MessageFacade;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

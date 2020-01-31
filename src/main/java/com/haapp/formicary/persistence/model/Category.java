@@ -1,4 +1,4 @@
-package com.haapp.formicary.persistence.entity;
+package com.haapp.formicary.persistence.model;
 
 import lombok.Getter;
 import lombok.Setter;
