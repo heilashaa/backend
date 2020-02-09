@@ -3,77 +3,62 @@ package com.haapp.formicary.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import springfox.documentation.builders.ParameterBuilder;
+import org.springframework.core.env.Environment;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.BasicAuth;
 import springfox.documentation.service.Contact;
-import springfox.documentation.service.SecurityScheme;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import javax.annotation.Resource;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import static com.haapp.formicary.config.Constant.Headers.X_LOCALE;
-import static com.haapp.formicary.config.Constant.Service.BASIC_AUTH;
-import static java.util.Collections.singletonList;
-
 @Configuration
 @EnableSwagger2
-@PropertySource("swagger-api.properties")
+@PropertySource("classpath:application.yaml")
 public class SwaggerConfig {
 
-    @Resource
-    private SwaggerProperties apiProperties;
+    private final Environment environment;
+
+    public SwaggerConfig(Environment environment) {
+        this.environment = environment;
+    }
 
     @Bean
     public Docket apiDocket(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.haapp.formicary."))
+                .apis(RequestHandlerSelectors.basePackage("com.haapp.formicary"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(createApiInfo())
-                .globalOperationParameters(
+                /*.globalOperationParameters(
                         Arrays.asList(new ParameterBuilder()
                                 .name(X_LOCALE)
                                 .description("Locale header")
                                 .modelRef(new ModelRef("string"))
                                 .parameterType("header")
                                 .required(true)
-                                .build()))
-                .securitySchemes(createSecuritySchemes());
+                                .build()))*/
+                /*.securitySchemes(createSecuritySchemes())*/;
     }
 
     private ApiInfo createApiInfo() {
-        return new ApiInfo(
-                apiProperties.getTitle(),
-                apiProperties.getDescription(),
-                apiProperties.getVersion(),
-                apiProperties.getTermsOfServiceUrl(),
-                createContact(apiProperties.getContact()),
-                apiProperties.getLicense(),
-                apiProperties.getLicenseUrl(),
-                Collections.emptyList()
-        );
+        return new ApiInfoBuilder()
+                .title(environment.getProperty("swagger.api-info.title"))
+                .description(environment.getProperty("swagger.api-info.description"))
+                .version(environment.getProperty("swagger.api-info.version"))
+                .license(environment.getProperty("swagger.api-info.license"))
+                .licenseUrl(environment.getProperty("swagger.api-info.licenseUrl"))
+                .contact(new Contact(
+                        environment.getProperty("swagger.api-info.contact.name"),
+                        environment.getProperty("swagger.api-info.contact.url"),
+                        environment.getProperty("swagger.api-info.contact.email")
+                ))
+                .build();
     }
 
-    private Contact createContact(SwaggerProperties.Contact contact) {
-        return new Contact(
-                contact.getName(),
-                contact.getUrl(),
-                contact.getEmail()
-        );
-    }
-
-    private List<SecurityScheme> createSecuritySchemes() {
-        return singletonList(new BasicAuth(BASIC_AUTH));
-    }
-
+//    private List<SecurityScheme> createSecuritySchemes() {
+//        return singletonList(new BasicAuth(BASIC_AUTH));
+//    }
 }

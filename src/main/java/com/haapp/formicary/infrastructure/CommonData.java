@@ -20,5 +20,5 @@ import java.util.Locale;
 public class CommonData {
 
     private Locale locale;
-
+    private String theme;
 }

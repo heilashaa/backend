@@ -1,17 +1,33 @@
-#swagger
-application:
+#swagger api info
+swagger:
   api-info:
     version: 1.0
     title: Formicary REST
-    description: Crowdfunding platform
-    license: free
+    description: API for crowdfunding platform
+    license: Open Source
+    licenseUrl: https://www.apache.org/licenses/LICENSE-2.0
     contact:
       name: Alexandr Heilash
+      url: https://www.linkedin.com/in/alexandr-heilash-6b0055173/
       email: alexandr.heilash@gmail.com
 
 spring:
   profiles:
     active: '@activated.profile@'
+
+#AWS S3
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAIYFMKY3K7ONV5Y5A
+      secretKey: 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
+    region.static: us-east-2
+    stack.auto: false
+    s3:
+      tripImagesBucket: heilash
+      objectUrlPrefix: https://d3ocamvut00iju.cloudfront.net/
+      region: us-east-2
+
 
 #  social:
 #    facebook:
