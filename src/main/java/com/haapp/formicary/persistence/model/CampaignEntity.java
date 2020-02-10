@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,8 +26,10 @@ public class CampaignEntity {
     private String name;
     private String description;
     private Integer targetAmount;
+    @CreationTimestamp
     private LocalDateTime launchDate;
     private LocalDateTime expirationDate;
+    @UpdateTimestamp
     private LocalDateTime modificationDate;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
@@ -42,14 +46,14 @@ public class CampaignEntity {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
     private Set<CommentEntity> comments = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
-    private Set<NewsEntity> news = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
+    private Set<ArticleEntity> articles = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
     private Set<RatingEntity> ratings = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
-    private Set<ImageEntity> image = new HashSet<>();
+    private Set<ImageEntity> images = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "campaign_tag",

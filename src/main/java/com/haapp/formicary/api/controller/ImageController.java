@@ -1,7 +1,7 @@
 package com.haapp.formicary.api.controller;
 
 import com.haapp.formicary.api.message.ConfirmationResponse;
-import com.haapp.formicary.domain.service.S3FileStorageFacade;
+import com.haapp.formicary.domain.service.FileUploadService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
@@ -19,16 +19,17 @@ import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 @AllArgsConstructor
 public class ImageController {
 
-    private final S3FileStorageFacade fileStorageFacade;
+    private final FileUploadService fileUploadService;
 
-    @ApiOperation(value = "${trip.service.operation.addPhoto}", nickname = "addPhoto")
-    @PostMapping(path = "/{id}/photo", consumes = MULTIPART_FORM_DATA_VALUE)
-    public ConfirmationResponse addPhoto(
-            @ApiParam(value = "${trip.service.param.trip.id}", required = true)
+    @ApiOperation(value = "add image")
+    @PostMapping(path = "/{id}/image", consumes = MULTIPART_FORM_DATA_VALUE)
+    public ConfirmationResponse addImage(
+            @ApiParam(value = "s3 bucket folder", required = true)
             @PathVariable String id,
-            @ApiParam(value = "${trip.service.param.image.array}", /*allowMultiple = true,*/ required = true)
+            @ApiParam(value = "image", /*allowMultiple = true,*/ required = true)
             @RequestPart("images") MultipartFile/*[]*/ images) {
-        fileStorageFacade.uploadTripImages(id, asList(images));
+        fileUploadService.uploadImages(id, asList(images));
+        System.out.println(fileUploadService.getImageUrl().toString());
         return SUCCESS;
     }
 }

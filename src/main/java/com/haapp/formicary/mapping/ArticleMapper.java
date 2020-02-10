@@ -1,28 +1,25 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.CategoryDto;
-import com.haapp.formicary.api.model.NewsDto;
-import com.haapp.formicary.domain.model.Category;
-import com.haapp.formicary.domain.model.News;
-import com.haapp.formicary.persistence.model.CategoryEntity;
-import com.haapp.formicary.persistence.model.NewsEntity;
+import com.haapp.formicary.api.model.ArticleDto;
+import com.haapp.formicary.domain.model.Article;
+import com.haapp.formicary.persistence.model.ArticleEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
 @Component
 @Mapper(uses = {CampaignMapper.class})
-public interface NewsMapper {
+public interface ArticleMapper {
 
-        NewsMapper INSTANCE = Mappers.getMapper(NewsMapper.class);
+        ArticleMapper INSTANCE = Mappers.getMapper(ArticleMapper.class);
 
-        NewsDto newsDomainToNewDto(News newsDomain);
+        ArticleDto articleDomainToArticleDto(Article articleDomain);
 
-        News newsDtoToNewsDomain(CategoryDto categoryDto);
+        Article articleDtoToArticleDomain(ArticleDto articleDto);
 
-        NewsEntity newsDomainToNewsPersistence(News newsDomain);
+        ArticleEntity articleDomainToArticlePersistence(Article articleDomain);
 
-        News newsPersistenceToNewsDomain(NewsEntity newsPersistence);
+        Article articlePersistenceToArticleDomain(ArticleEntity articlePersistence);
 
 //    DivisionDTO divisionToDivisionDTO(Division entity);
 //    Division divisionDTOtoDivision(DivisionDTO dto);

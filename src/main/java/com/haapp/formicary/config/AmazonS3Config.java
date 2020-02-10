@@ -9,22 +9,30 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+
+import java.util.Objects;
 
 @Configuration
 @AllArgsConstructor
-public class S3Config {
+@PropertySource("classpath:application.yaml")
+public class AmazonS3Config {
 
-    private final AwsConfigProperties awsConfigProperties;
+    private final Environment environment;
 
     @Bean
-    public AmazonS3 amazonS3() {
+    public AmazonS3 amazonS3Client() {
 
-        AWSCredentials credentials = new BasicAWSCredentials(awsConfigProperties.getCredentials().getAccessKey(),
-                                                             awsConfigProperties.getCredentials().getSecretKey());
+        environment.getProperty("");
+        AWSCredentials credentials = new BasicAWSCredentials(
+                Objects.requireNonNull(environment.getProperty("cloud.aws.credentials.accessKey")),
+                Objects.requireNonNull(environment.getProperty("cloud.aws.credentials.secretKey")));
+
         return AmazonS3ClientBuilder
                 .standard()
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                .withRegion(Regions.fromName(awsConfigProperties.getS3().getRegion()))
+                .withRegion(Regions.fromName(environment.getProperty("cloud.aws.s3.region")))
                 .build();
     }
 }

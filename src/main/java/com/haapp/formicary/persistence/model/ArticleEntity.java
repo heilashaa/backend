@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,18 +14,17 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "news")
-public class NewsEntity {
+@Table(name = "article")
+public class ArticleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String text;
     private String imageLink;
+    @CreationTimestamp
     private LocalDateTime creationDate;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
-    @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "news_campaign_FK"))
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "article_campaign_FK"))
     private CampaignEntity campaign;
 }
