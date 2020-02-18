@@ -20,11 +20,11 @@ public class LikeEntity {
     private Long id;
     private Integer status;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "likes_user_FK"))
     private UserEntity user;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "comment_id", nullable = false, foreignKey = @ForeignKey(name = "likes_comment_FK"))
     private CommentEntity comment;
 }

@@ -20,11 +20,12 @@ public class ArticleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String headline;
     private String text;
     private String imageLink;
     @CreationTimestamp
     private LocalDateTime creationDate;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "article_campaign_FK"))
     private CampaignEntity campaign;
 }

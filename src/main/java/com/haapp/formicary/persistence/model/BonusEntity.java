@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -21,7 +23,9 @@ public class BonusEntity {
     private String name;
     private String description;
     private Integer amount;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "bonus_campaign_FK"))
     private CampaignEntity campaign;
+    @ManyToMany(mappedBy = "bonuses", fetch = FetchType.LAZY)
+    private Set<UserEntity> users = new HashSet<>();
 }

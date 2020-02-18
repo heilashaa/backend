@@ -5,19 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleDto {
+public class ImageDto {
 
     private Long id;
-    private String headline;
-    private String text;
     private String imageLink;
-    private LocalDateTime creationDate;
 
     private CampaignDto campaign;
 }

@@ -19,7 +19,7 @@ public class ImageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String imageLink;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "image_campaign_FK"))
     private CampaignEntity campaign;
 }

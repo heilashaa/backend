@@ -9,12 +9,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Rating {
+public class Like {
 
     private Long id;
-    private Integer value;
+    private Integer status;
 
     private User user;
 
-    private Campaign campaign;
+    private Comment comment;
 }

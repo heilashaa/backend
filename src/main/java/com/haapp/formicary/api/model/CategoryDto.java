@@ -15,7 +15,6 @@ import javax.validation.constraints.Size;
 public class CategoryDto {
 
     private Long id;
-
     @NotNull
     @Size(min = 1, max = 30)
     private String name;

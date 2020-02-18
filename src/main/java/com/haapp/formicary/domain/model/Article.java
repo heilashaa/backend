@@ -14,8 +14,10 @@ import java.time.LocalDateTime;
 public class Article {
 
     private Long id;
+    private String headline;
     private String text;
     private String imageLink;
     private LocalDateTime creationDate;
+
     private Campaign campaign;
 }

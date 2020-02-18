@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import static com.haapp.formicary.api.message.ConfirmationResponse.SUCCESS;
 import static java.util.Arrays.asList;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
@@ -22,7 +23,7 @@ public class ImageController {
     private final FileUploadService fileUploadService;
 
     @ApiOperation(value = "add image")
-    @PostMapping(path = "/{id}/image", consumes = MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(path = "/{id}/image", consumes = {MULTIPART_FORM_DATA_VALUE})
     public ConfirmationResponse addImage(
             @ApiParam(value = "s3 bucket folder", required = true)
             @PathVariable String id,

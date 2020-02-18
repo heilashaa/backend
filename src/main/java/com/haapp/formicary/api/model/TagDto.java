@@ -5,19 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleDto {
+public class TagDto {
 
     private Long id;
-    private String headline;
-    private String text;
-    private String imageLink;
-    private LocalDateTime creationDate;
+    private String name;
 
-    private CampaignDto campaign;
+    private Set<CampaignDto> campaigns = new HashSet<>();
 }

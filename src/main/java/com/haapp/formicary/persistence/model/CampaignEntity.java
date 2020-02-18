@@ -26,36 +26,37 @@ public class CampaignEntity {
     private String name;
     private String description;
     private Integer targetAmount;
+    private String video;
     @CreationTimestamp
     private LocalDateTime launchDate;
     private LocalDateTime expirationDate;
     @UpdateTimestamp
     private LocalDateTime modificationDate;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "campaign_user_FK"))
     private UserEntity user;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "category_id", nullable = false, foreignKey = @ForeignKey(name = "campaign_category_FK"))
     private CategoryEntity category;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<BonusEntity> bonuses = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<CommentEntity> comments = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<ArticleEntity> articles = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<RatingEntity> ratings = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "campaign")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<ImageEntity> images = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "campaign_tag",
             joinColumns = @JoinColumn(name = "campaign_id"), foreignKey = @ForeignKey(name = "tag_campaign_FK"),
             inverseJoinColumns = @JoinColumn(name = "tag_id") , inverseForeignKey = @ForeignKey(name = "campaign_tag_FK"))

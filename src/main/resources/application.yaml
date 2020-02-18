@@ -14,6 +14,12 @@ swagger:
 spring:
   profiles:
     active: '@activated.profile@'
+  servlet:
+    multipart:
+      max-file-size: 1024KB
+      max-request-size: 1024KB
+
+
 
 #AWS S3
 cloud:

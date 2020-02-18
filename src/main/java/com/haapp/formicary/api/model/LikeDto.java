@@ -5,19 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleDto {
+public class LikeDto {
 
     private Long id;
-    private String headline;
-    private String text;
-    private String imageLink;
-    private LocalDateTime creationDate;
+    private Integer status;
 
-    private CampaignDto campaign;
+    private UserDto user;
+
+    private CommentDto comment;
 }

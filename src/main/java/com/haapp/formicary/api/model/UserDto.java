@@ -1,4 +1,4 @@
-package com.haapp.formicary.domain.model;
+package com.haapp.formicary.api.model;
 
 import com.haapp.formicary.persistence.model.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class UserDto {
 
     private Long id;
     private String userName;
@@ -25,13 +25,13 @@ public class User {
     private Integer theme;
     private Integer language;
 
-    private List<Campaign> campaigns = new ArrayList<>();
+    private List<CampaignDto> campaigns = new ArrayList<>();
 
-    private Set<Comment> comments = new HashSet<>();
+    private Set<CommentDto> comments = new HashSet<>();
 
-    private Set<Like> likes = new HashSet<>();
+    private Set<LikeDto> likes = new HashSet<>();
 
-    private Set<Rating> ratings = new HashSet<>();
+    private Set<RatingDto> ratings = new HashSet<>();
 
-    private Set<Bonus> bonuses  = new HashSet<>();;
+    private Set<BonusDto> bonuses  = new HashSet<>();
 }

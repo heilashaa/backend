@@ -22,6 +22,6 @@ public class TagEntity {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy = "tags", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "tags", fetch = FetchType.LAZY)
     private Set<CampaignEntity> campaigns = new HashSet<>();
 }

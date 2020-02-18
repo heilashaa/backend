@@ -1,9 +1,13 @@
 package com.haapp.formicary.api.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -15,22 +19,24 @@ public class CampaignDto {
     private String name;
     private String description;
     private Integer targetAmount;
+    private String video;
     private LocalDateTime launchDate;
     private LocalDateTime expirationDate;
     private LocalDateTime modificationDate;
 
-//    private User user;
-//
-//    private Category category;
-//
-//    private Set<Bonus> bonuses;
-//
-//    private Set<Comment> comments;
-//
-//    private Set<News> news;
-//
-//    private Set<Rating> ratings;
-//
-//    private Set<Tag> tags;
+    private UserDto user;
 
+    private CategoryDto category;
+
+    private Set<BonusDto> bonuses = new HashSet<>();
+
+    private Set<CommentDto> comments = new HashSet<>();
+
+    private Set<ArticleDto> articles = new HashSet<>();
+
+    private Set<RatingDto> ratings = new HashSet<>();
+
+    private Set<ImageDto> images = new HashSet<>();
+
+    private Set<TagDto> tags = new HashSet<>();
 }
