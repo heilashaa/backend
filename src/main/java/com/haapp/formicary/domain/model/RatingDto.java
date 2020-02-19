@@ -1,4 +1,4 @@
-package com.haapp.formicary.api.model;
+package com.haapp.formicary.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +9,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImageDto {
+public class RatingDto {
 
     private Long id;
-    private String imageLink;
+    private Integer value;
 
-    private CampaignDto campaign;
+    private UserDto userDto;
+
+    private CampaignDto campaignDto;
 }

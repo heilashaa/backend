@@ -1,4 +1,4 @@
-package com.haapp.formicary.api.model;
+package com.haapp.formicary.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,5 +19,5 @@ public class ArticleDto {
     private String imageLink;
     private LocalDateTime creationDate;
 
-    private CampaignDto campaign;
+    private CampaignDto campaignDto;
 }

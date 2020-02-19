@@ -16,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "comment")
-public class CommentEntity {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +26,12 @@ public class CommentEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "comment_campaign_FK"))
-    private CampaignEntity campaign;
+    private Campaign campaign;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "comment_user_FK"))
-    private UserEntity user;
+    private User user;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "comment")
-    private Set<LikeEntity> likes = new HashSet<>();
+    private Set<Like> likes = new HashSet<>();
 }

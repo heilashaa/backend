@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "likes")
-public class LikeEntity {
+public class Like {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +22,9 @@ public class LikeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "likes_user_FK"))
-    private UserEntity user;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "comment_id", nullable = false, foreignKey = @ForeignKey(name = "likes_comment_FK"))
-    private CommentEntity comment;
+    private Comment comment;
 }

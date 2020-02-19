@@ -1,9 +1,9 @@
 package com.haapp.formicary.security.service;
 
-import com.haapp.formicary.domain.model.User;
+import com.haapp.formicary.domain.model.UserDto;
 import com.haapp.formicary.infrastructure.exception.InvalidTokenAuthException;
 import com.haapp.formicary.mapping.UserMapper;
-import com.haapp.formicary.persistence.model.UserEntity;
+import com.haapp.formicary.persistence.model.User;
 import com.haapp.formicary.persistence.repository.UserRepository;
 import com.haapp.formicary.security.model.JwtAuthentication;
 import com.haapp.formicary.security.model.JwtUserDetails;
@@ -34,10 +34,10 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
         if (Objects.isNull(userEntityId)) {
             throw new InvalidTokenAuthException("Token does not contain a user id");
         }
-        UserEntity userEntity = userRepository.findById(userEntityId)
+        User user = userRepository.findById(userEntityId)
                 .orElseThrow(() -> new InvalidTokenAuthException("Token does not contain existed user id"));
-        User user = UserMapper.INSTANCE.userPersistenceToUserDomain(userEntity);
-        JwtUserDetails userDetails = new JwtUserDetails(user);
+        UserDto userDto = UserMapper.INSTANCE.userToUserDto(user);
+        JwtUserDetails userDetails = new JwtUserDetails(userDto);
         return new JwtAuthentication(userDetails);
     }
 

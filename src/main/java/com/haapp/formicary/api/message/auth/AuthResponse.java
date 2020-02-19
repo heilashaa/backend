@@ -1,7 +1,7 @@
 package com.haapp.formicary.api.message.auth;
 
 import com.haapp.formicary.api.message.BaseResponse;
-import com.haapp.formicary.api.model.UserDto;
+import com.haapp.formicary.api.model.UserDtoQQQQ;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,5 +13,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AuthResponse extends BaseResponse {
 
-    private UserDto userDto;
+    private UserDtoQQQQ userDtoQQQQ;
 }

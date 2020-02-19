@@ -3,8 +3,8 @@ package com.haapp.formicary.api.controller;
 import com.haapp.formicary.api.message.article.ArticleRequest;
 import com.haapp.formicary.api.message.article.ArticleResponse;
 import com.haapp.formicary.api.message.article.ArticlesResponse;
-import com.haapp.formicary.api.model.ArticleDto;
-import com.haapp.formicary.domain.model.Article;
+import com.haapp.formicary.api.model.ArticleDtoQQQQ;
+import com.haapp.formicary.domain.model.ArticleDto;
 import com.haapp.formicary.domain.service.ArticleService;
 import com.haapp.formicary.mapping.ArticleMapper;
 import io.swagger.annotations.Api;
@@ -23,8 +23,7 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
-@Api(
-        value = "REST API for campaigns Articles. API allows operations with article: create, read, update, delete."
+@Api(value = "REST API for campaigns Articles. API allows operations with article: create, read, update, delete."
         /*, authorizations = {@Authorization(BASIC_AUTH)}*/)
 @RestController
 @RequestMapping(value = "/api/v1/article", produces = APPLICATION_JSON_VALUE)
@@ -33,42 +32,35 @@ public class ArticleController {
 
     private ArticleService articleService;
 
-    @ApiOperation(value = "Select all articles"/*,
-            authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @GetMapping(name = "/")
+    @ApiOperation(value = "Select all articles"/*, authorizations = {@Authorization(BASIC_AUTH)}*/)
+    @GetMapping("/")
     @ResponseStatus(OK)
     public ArticlesResponse getArticles() {
-        List<Article> articles = articleService.getAll();
-        List<ArticleDto> articlesDto = articles.stream().map(ArticleMapper.INSTANCE::articleDomainToArticleDto).collect(Collectors.toList());
+        List<ArticleDto> articlesDto = articleService.getAll();
         return new ArticlesResponse(articlesDto);
     }
 
-    @ApiOperation(value = "Find article by id")
-//            authorizations = {@Authorization(BASIC_AUTH)})
+    @ApiOperation(value = "Find article by id"/*, authorizations = {@Authorization(BASIC_AUTH)}*/)
     @GetMapping("/{id}")
     @ResponseStatus(OK)
     public ArticleResponse getArticle(
             @ApiParam(value = "Article ID", required = true)
             @PathVariable Long id) {
-        Article article = articleService.findById(id);
-        return new ArticleResponse(ArticleMapper.INSTANCE.articleDomainToArticleDto(article));
-
+        ArticleDto articleDto = articleService.findById(id);
+        return new ArticleResponse(articleDto);
     }
 
-    @ApiOperation(value = "Add new article"/*,
-            authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @PostMapping(name = "/", consumes = {MULTIPART_FORM_DATA_VALUE/*, APPLICATION_JSON_VALUE*/})
+    @ApiOperation(value = "Add new article"/*, authorizations = {@Authorization(BASIC_AUTH)}*/)
+    @PostMapping(value = "/", consumes = {MULTIPART_FORM_DATA_VALUE/*, APPLICATION_JSON_VALUE*/})
     @ResponseStatus(CREATED)
     public ArticleResponse createArticle(
             @ApiParam(value = "Article", required = true)
             /*@RequestPart*/ @Valid ArticleRequest request,
             @ApiParam(value = "image" /*allowMultiple = true,*/)
             @RequestPart(value = "file") MultipartFile/*[]*/ image) {
-
-        Article article = ArticleMapper.INSTANCE.articleDtoToArticleDomain(request.getArticleDto());
-        article = articleService.create(article);
-
-        return new ArticleResponse(ArticleMapper.INSTANCE.articleDomainToArticleDto(article));
+        ArticleDto articleDto = request.getArticleDto();
+        articleDto = articleService.create(articleDto);
+        return new ArticleResponse(articleDto);
     }
 
 //    @Transactional
@@ -145,29 +137,26 @@ public class ArticleController {
 //    });
 //    };
 
-
-    @ApiOperation(value = "Delete article by id"
-            /* authorizations = {@Authorization(BASIC_AUTH)}*/)
+    @ApiOperation(value = "Delete article by id" /*, authorizations = {@Authorization(BASIC_AUTH)}*/)
     @DeleteMapping("/{id}")
     @ResponseStatus(OK)
     public ArticleResponse deleteArticle(
             @ApiParam(value = "Article ID", required = true)
             @PathVariable Long id) {
-        Article article = articleService.deleteById(id);
-        return new ArticleResponse(ArticleMapper.INSTANCE.articleDomainToArticleDto(article));
+        ArticleDto articleDto = articleService.deleteById(id);
+        return new ArticleResponse(articleDto);
     }
 
-    @ApiOperation(value = "Update article"
-            /* authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @PutMapping("/{id}")
+    @ApiOperation(value = "Update article"/*, authorizations = {@Authorization(BASIC_AUTH)}*/)
+    @PutMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
     public ArticleResponse updateArticle(
             @ApiParam(value = "Article ID", required = true)
             @PathVariable Long id,
             @ApiParam(value = "Article", required = true)
             @RequestBody @Valid ArticleRequest request) {
-        Article article = ArticleMapper.INSTANCE.articleDtoToArticleDomain(request.getArticleDto());
-        article = articleService.update(article, id);
-        return new ArticleResponse(ArticleMapper.INSTANCE.articleDomainToArticleDto(article));
+        ArticleDto articleDto = request.getArticleDto();
+        articleDto = articleService.update(articleDto, id);
+        return new ArticleResponse(articleDto);
     }
 }

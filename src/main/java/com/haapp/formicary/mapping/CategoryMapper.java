@@ -1,9 +1,7 @@
 package com.haapp.formicary.mapping;
 
-
-import com.haapp.formicary.api.model.CategoryDto;
-import com.haapp.formicary.domain.model.Category;
-import com.haapp.formicary.persistence.model.CategoryEntity;
+import com.haapp.formicary.domain.model.CategoryDto;
+import com.haapp.formicary.persistence.model.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
@@ -14,13 +12,9 @@ public interface CategoryMapper {
 
     CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
 
-    CategoryDto categoryDomainToCategoryDto(Category categoryDomain);
+    Category categoryDtoToCategory(CategoryDto categoryDto);
 
-    Category categoryDtoToCategoryDomain(CategoryDto categoryDto);
-
-    CategoryEntity categoryDomainToCategoryPersistence(Category categoryDomain);
-
-   Category categoryPersistenceToCategoryDomain(CategoryEntity categoryPersistence);
+    CategoryDto categoryToCategoryDto(Category category);
 
 //    DivisionDTO divisionToDivisionDTO(Division entity);
 //    Division divisionDTOtoDivision(DivisionDTO dto);

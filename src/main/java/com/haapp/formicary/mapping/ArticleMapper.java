@@ -1,8 +1,8 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.ArticleDto;
-import com.haapp.formicary.domain.model.Article;
-import com.haapp.formicary.persistence.model.ArticleEntity;
+import com.haapp.formicary.api.model.ArticleDtoQQQQ;
+import com.haapp.formicary.domain.model.ArticleDto;
+import com.haapp.formicary.persistence.model.Article;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
@@ -13,13 +13,9 @@ public interface ArticleMapper {
 
         ArticleMapper INSTANCE = Mappers.getMapper(ArticleMapper.class);
 
-        ArticleDto articleDomainToArticleDto(Article articleDomain);
+        Article articleDtoToArticle(ArticleDto articleDto);
 
-        Article articleDtoToArticleDomain(ArticleDto articleDto);
-
-        ArticleEntity articleDomainToArticlePersistence(Article articleDomain);
-
-        Article articlePersistenceToArticleDomain(ArticleEntity articlePersistence);
+        ArticleDto articleToArticleDto(Article article);
 
 //    DivisionDTO divisionToDivisionDTO(Division entity);
 //    Division divisionDTOtoDivision(DivisionDTO dto);

@@ -1,8 +1,8 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.RatingDto;
-import com.haapp.formicary.domain.model.Rating;
-import com.haapp.formicary.persistence.model.RatingEntity;
+import com.haapp.formicary.api.model.RatingDtoQQQ;
+import com.haapp.formicary.domain.model.RatingDto;
+import com.haapp.formicary.persistence.model.Rating;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
@@ -13,11 +13,7 @@ public interface RatingMapper {
     
     RatingMapper INSTANCE = Mappers.getMapper(RatingMapper.class);
 
-    RatingDto ratingDomainToRatingDto(Rating ratingDomain);
+    Rating ratingDtoToRating(RatingDto ratingDto);
 
-    Rating ratingDtoToRatingDomain(RatingDto ratingDto);
-
-    RatingEntity ratingDomainToRatingPersistence(Rating ratingDomain);
-
-    Rating ratingPersistenceToRatingDomain(RatingEntity ratingPersistence);
+    RatingDto ratingToRatingDto(Rating rating);
 }

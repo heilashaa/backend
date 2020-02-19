@@ -1,4 +1,4 @@
-package com.haapp.formicary.api.model;
+package com.haapp.formicary.api;
 
 import lombok.*;
 import org.springframework.stereotype.Component;

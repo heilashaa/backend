@@ -9,12 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Rating {
+public class ImageDto {
 
     private Long id;
-    private Integer value;
+    private String imageLink;
 
-    private User user;
-
-    private Campaign campaign;
+    private CampaignDto campaignDto;
 }

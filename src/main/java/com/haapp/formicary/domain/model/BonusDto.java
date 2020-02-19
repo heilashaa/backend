@@ -12,10 +12,14 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Tag {
+public class BonusDto {
 
     private Long id;
     private String name;
+    private String description;
+    private Integer amount;
 
-    private Set<Campaign> campaigns = new HashSet<>();
+    private CampaignDto campaignDto;
+
+    private Set<UserDto> usersDto = new HashSet<>();
 }

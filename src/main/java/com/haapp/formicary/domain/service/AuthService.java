@@ -1,8 +1,8 @@
 package com.haapp.formicary.domain.service;
 
-import com.haapp.formicary.domain.model.AuthUser;
-import com.haapp.formicary.domain.model.LoginRequest;
-import com.haapp.formicary.domain.model.LoginResponse;
+import com.haapp.formicary.domain.model.AuthUserDto;
+import com.haapp.formicary.domain.model.LoginRequestDto;
+import com.haapp.formicary.domain.model.LoginResponseDto;
 import com.haapp.formicary.infrastructure.exception.AuthException;
 import com.haapp.formicary.persistence.repository.UserRepository;
 import com.haapp.formicary.security.model.JwtUserDetails;
@@ -28,11 +28,11 @@ public class AuthService {
     private final AuthHelper authenticationHelper;
     private final AuthenticationManager authenticationManager;
 
-    public LoginResponse login(final LoginRequest loginRequest) {
+    public LoginResponseDto login(final LoginRequestDto loginRequestDto) {
         try {
-            String username = Optional.ofNullable(loginRequest.getUsername())
+            String username = Optional.ofNullable(loginRequestDto.getUsername())
                     .orElseThrow(() -> new BadCredentialsException("Username should be passed"));
-            String password = Optional.ofNullable(loginRequest.getPassword())
+            String password = Optional.ofNullable(loginRequestDto.getPassword())
                     .orElseThrow(() -> new BadCredentialsException("Password should be passed"));
             UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username,
                     password);
@@ -45,7 +45,7 @@ public class AuthService {
                     throw new AuthException("User not exist in system");
                 }
                 String token = this.authenticationHelper.generateToken(userDetails.getId());
-                return new LoginResponse(token);
+                return new LoginResponseDto(token);
             } else {
                 throw new AuthException("Authentication failed");
             }
@@ -55,7 +55,7 @@ public class AuthService {
     }
 
     @Transactional(readOnly = true)
-    public AuthUser getMe() {
+    public AuthUserDto getMe() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         boolean checkAuthenticationExists = authentication != null && authentication.isAuthenticated();
         if (checkAuthenticationExists) {

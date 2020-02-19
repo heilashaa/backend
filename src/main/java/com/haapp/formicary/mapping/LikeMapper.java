@@ -1,8 +1,8 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.LikeDto;
-import com.haapp.formicary.domain.model.Like;
-import com.haapp.formicary.persistence.model.LikeEntity;
+import com.haapp.formicary.api.model.LikeDtoQQQQ;
+import com.haapp.formicary.domain.model.LikeDto;
+import com.haapp.formicary.persistence.model.Like;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
@@ -13,11 +13,7 @@ public interface LikeMapper {
     
     LikeMapper INSTANCE = Mappers.getMapper(LikeMapper.class);
 
-    LikeDto likeDomainToLikeDto(Like likeDomain);
+    Like likeDtoToLike(LikeDto likeDto);
 
-    Like likeDtoToLikeDomain(LikeDto likeDto);
-
-    LikeEntity likeDomainToLikePersistence(Like likeDomain);
-
-    Like likePersistenceToLikeDomain(LikeEntity likePersistence);
+    LikeDto likeToLikeDto(Like like);
 }

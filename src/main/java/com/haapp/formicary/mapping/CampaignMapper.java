@@ -1,10 +1,9 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.CampaignDto;
-import com.haapp.formicary.domain.model.Campaign;
-import com.haapp.formicary.persistence.model.CampaignEntity;
+import com.haapp.formicary.api.model.CampaignDtoQQQQ;
+import com.haapp.formicary.domain.model.CampaignDto;
+import com.haapp.formicary.persistence.model.Campaign;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
@@ -14,13 +13,9 @@ public interface CampaignMapper {
 
     CampaignMapper INSTANCE = Mappers.getMapper(CampaignMapper.class);
 
-    CampaignDto campaignDomainToCampaignDto(Campaign campaignDomain);
+    Campaign campaignDtoToCampaign(CampaignDto campaignDto);
 
-    Campaign campaignDtoToCampaignDomain(CampaignDto campaignDto);
-
-    CampaignEntity campaignDomainToCampaignPersistence(Campaign campaignDomain);
-
-    Campaign campaignPersistenceToCampaignDomain(CampaignEntity campaignPersistence);
+    CampaignDto campaignToCampaignDto(Campaign campaign);
 
 //    DivisionDTO divisionToDivisionDTO(Division entity);
 //    Division divisionDTOtoDivision(DivisionDTO dto);

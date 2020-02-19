@@ -1,4 +1,4 @@
-package com.haapp.formicary.api.model;
+package com.haapp.formicary.domain.model;
 
 import com.haapp.formicary.persistence.model.*;
 import lombok.AllArgsConstructor;
@@ -30,19 +30,17 @@ public class UserDto {
     @NotNull
     @Size(min = 8)
     private String password;
-
     private UserRole role;
-    private Integer status;
     private Integer theme;
     private Integer language;
 
-    private List<CampaignDto> campaigns = new ArrayList<>();
+    private List<CampaignDto> campaignsDto = new ArrayList<>();
 
-    private Set<CommentDto> comments = new HashSet<>();
+    private Set<CommentDto> commentsDto = new HashSet<>();
 
-    private Set<LikeDto> likes = new HashSet<>();
+    private Set<LikeDto> likesDto = new HashSet<>();
 
-    private Set<RatingDto> ratings = new HashSet<>();
+    private Set<RatingDto> ratingsDto = new HashSet<>();
 
-    private Set<BonusDto> bonuses  = new HashSet<>();
+    private Set<BonusDto> bonusesDto = new HashSet<>();;
 }

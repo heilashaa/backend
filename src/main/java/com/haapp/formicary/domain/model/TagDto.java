@@ -5,14 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Image {
+public class TagDto {
 
     private Long id;
-    private String imageLink;
+    private String name;
 
-    private Campaign campaign;
+    private Set<CampaignDto> campaignsDto = new HashSet<>();
 }

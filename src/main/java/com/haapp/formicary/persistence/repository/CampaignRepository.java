@@ -1,9 +1,9 @@
 package com.haapp.formicary.persistence.repository;
 
-import com.haapp.formicary.persistence.model.CampaignEntity;
+import com.haapp.formicary.persistence.model.Campaign;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CampaignRepository extends JpaRepository<CampaignEntity, Long> {
+public interface CampaignRepository extends JpaRepository<Campaign, Long> {
 }

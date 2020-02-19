@@ -1,15 +1,11 @@
 package com.haapp.formicary.api.message.category;
 
-import com.haapp.formicary.api.model.CategoryDto;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.haapp.formicary.domain.model.CategoryDto;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Getter
 @Setter

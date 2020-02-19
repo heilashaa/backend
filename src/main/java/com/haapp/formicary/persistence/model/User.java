@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 @RequiredArgsConstructor
 @Table(name = "user")
-public class UserEntity {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,20 +29,20 @@ public class UserEntity {
     private Integer language;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<CampaignEntity> campaigns = new ArrayList<>();
+    private List<Campaign> campaigns = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<CommentEntity> comments = new HashSet<>();
+    private Set<Comment> comments = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<LikeEntity> likes = new HashSet<>();
+    private Set<Like> likes = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<RatingEntity> ratings = new HashSet<>();
+    private Set<Rating> ratings = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_bonus",
             joinColumns = @JoinColumn(name = "user_id"), foreignKey = @ForeignKey(name = "bonus_user_FK"),
             inverseJoinColumns = @JoinColumn(name = "bonus_id") , inverseForeignKey = @ForeignKey(name = "user_bonus_FK"))
-    private Set<BonusEntity> bonuses  = new HashSet<>();
+    private Set<Bonus> bonuses  = new HashSet<>();
 }

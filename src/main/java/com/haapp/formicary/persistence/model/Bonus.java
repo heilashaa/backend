@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "bonus")
-public class BonusEntity {
+public class Bonus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class BonusEntity {
     private Integer amount;
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "bonus_campaign_FK"))
-    private CampaignEntity campaign;
+    private Campaign campaign;
     @ManyToMany(mappedBy = "bonuses", fetch = FetchType.LAZY)
-    private Set<UserEntity> users = new HashSet<>();
+    private Set<User> users = new HashSet<>();
 }

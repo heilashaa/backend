@@ -1,4 +1,4 @@
 package com.haapp.formicary.domain.model;
 
-public class LoginResponse {
+public class AuthUserDto {
 }

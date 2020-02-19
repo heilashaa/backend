@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message.auth;
 
-import com.haapp.formicary.api.model.UserDto;
+import com.haapp.formicary.api.model.UserDtoQQQQ;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,5 +13,5 @@ public class AuthRequest {
 
     @Valid
     @NotNull
-    private UserDto userDto;
+    private UserDtoQQQQ userDtoQQQQ;
 }

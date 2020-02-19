@@ -1,8 +1,7 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.UserDto;
-import com.haapp.formicary.domain.model.User;
-import com.haapp.formicary.persistence.model.UserEntity;
+import com.haapp.formicary.domain.model.UserDto;
+import com.haapp.formicary.persistence.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
@@ -13,11 +12,7 @@ public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    UserDto userDomainToUserDto(User userDomain);
+    User userDtoToUser(UserDto userDto);
 
-    User userDtoToUserDomain(UserDto userDto);
-
-    UserEntity userDomainToUserPersistence(User userDomain);
-
-    User userPersistenceToUserDomain(UserEntity userPersistence);
+    UserDto userToUserDto(User user);
 }

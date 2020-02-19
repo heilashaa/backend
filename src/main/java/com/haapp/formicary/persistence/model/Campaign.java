@@ -18,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "campaign")
-public class CampaignEntity {
+public class Campaign {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,30 +35,30 @@ public class CampaignEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "campaign_user_FK"))
-    private UserEntity user;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "category_id", nullable = false, foreignKey = @ForeignKey(name = "campaign_category_FK"))
-    private CategoryEntity category;
+    private Category category;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
-    private Set<BonusEntity> bonuses = new HashSet<>();
+    private Set<Bonus> bonuses = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
-    private Set<CommentEntity> comments = new HashSet<>();
+    private Set<Comment> comments = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
-    private Set<ArticleEntity> articles = new HashSet<>();
+    private Set<Article> articles = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
-    private Set<RatingEntity> ratings = new HashSet<>();
+    private Set<Rating> ratings = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
-    private Set<ImageEntity> images = new HashSet<>();
+    private Set<Image> images = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "campaign_tag",
             joinColumns = @JoinColumn(name = "campaign_id"), foreignKey = @ForeignKey(name = "tag_campaign_FK"),
             inverseJoinColumns = @JoinColumn(name = "tag_id") , inverseForeignKey = @ForeignKey(name = "campaign_tag_FK"))
-    private Set<TagEntity> tags;
+    private Set<Tag> tags;
 }

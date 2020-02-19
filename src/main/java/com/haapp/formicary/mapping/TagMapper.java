@@ -1,8 +1,7 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.TagDto;
-import com.haapp.formicary.domain.model.Tag;
-import com.haapp.formicary.persistence.model.TagEntity;
+import com.haapp.formicary.domain.model.TagDto;
+import com.haapp.formicary.persistence.model.Tag;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
@@ -13,11 +12,7 @@ public interface TagMapper {
 
     TagMapper INSTANCE = Mappers.getMapper(TagMapper.class);
 
-    TagDto tagDomainToTagDto(Tag tagDomain);
+    Tag tagDtoToTag(TagDto tagDto);
 
-    Tag tagDtoToTagDomain(TagDto tagDto);
-
-    TagEntity tagDomainToTagPersistence(Tag tagDomain);
-
-    Tag tagPersistenceToTagDomain(TagEntity tagPersistence);
+    TagDto tagToTagDto(Tag tag);
 }

@@ -1,9 +1,9 @@
 package com.haapp.formicary.persistence.repository;
 
-import com.haapp.formicary.persistence.model.RatingEntity;
+import com.haapp.formicary.persistence.model.Rating;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RatingRepository extends JpaRepository<RatingEntity, Long> {
+public interface RatingRepository extends JpaRepository<Rating, Long> {
 }

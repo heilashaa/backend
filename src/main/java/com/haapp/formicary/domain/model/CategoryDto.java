@@ -1,4 +1,4 @@
-package com.haapp.formicary.api.model;
+package com.haapp.formicary.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -18,5 +20,6 @@ public class CategoryDto {
     @NotNull
     @Size(min = 1, max = 30)
     private String name;
-//    private Set<CampaignDto> campaigns = new HashSet<>();
+//    private Set<Campaign> campaigns = new HashSet<>();
 }
+

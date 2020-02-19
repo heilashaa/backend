@@ -13,7 +13,7 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Campaign {
+public class CampaignDto {
 
     private Long id;
     private String name;
@@ -24,19 +24,19 @@ public class Campaign {
     private LocalDateTime expirationDate;
     private LocalDateTime modificationDate;
 
-    private User user;
+    private UserDto userDto;
 
-    private Category category;
+    private CategoryDto categoryDto;
 
-    private Set<Bonus> bonuses = new HashSet<>();
+    private Set<BonusDto> bonusesDto = new HashSet<>();
 
-    private Set<Comment> comments = new HashSet<>();
+    private Set<CommentDto> commentsDto = new HashSet<>();
 
-    private Set<Article> articles = new HashSet<>();
+    private Set<ArticleDto> articlesDto = new HashSet<>();
 
-    private Set<Rating> ratings = new HashSet<>();
+    private Set<RatingDto> ratingsDto = new HashSet<>();
 
-    private Set<Image> images = new HashSet<>();
+    private Set<ImageDto> imagesDto = new HashSet<>();
 
-    private Set<Tag> tags;
+    private Set<TagDto> tagsDto;
 }

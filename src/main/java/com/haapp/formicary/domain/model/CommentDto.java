@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,14 +13,15 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Bonus {
+public class CommentDto {
 
     private Long id;
-    private String name;
-    private String description;
-    private Integer amount;
+    private String text;
+    private LocalDateTime launchDate;
 
-    private Campaign campaign;
+    private CampaignDto campaignDto;
 
-    private Set<User> users = new HashSet<>();
+    private UserDto userDto;
+
+    private Set<LikeDto> likesDto = new HashSet<>();
 }

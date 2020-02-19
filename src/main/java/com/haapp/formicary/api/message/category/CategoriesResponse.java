@@ -1,9 +1,7 @@
 package com.haapp.formicary.api.message.category;
 
 import com.haapp.formicary.api.message.BaseResponse;
-import com.haapp.formicary.api.model.CategoryDto;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.haapp.formicary.domain.model.CategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +15,5 @@ import java.util.List;
 @AllArgsConstructor
 public class CategoriesResponse extends BaseResponse {
 
-    private List<CategoryDto> categoriesDto;
+    private List<CategoryDto> categories;
 }

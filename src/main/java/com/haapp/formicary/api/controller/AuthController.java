@@ -1,27 +1,11 @@
 package com.haapp.formicary.api.controller;
 
-import com.haapp.formicary.api.message.article.ArticleRequest;
 import com.haapp.formicary.api.message.article.ArticlesResponse;
-import com.haapp.formicary.api.message.auth.AuthRequest;
-import com.haapp.formicary.api.message.auth.AuthResponse;
-import com.haapp.formicary.api.message.category.CategoryRequest;
-import com.haapp.formicary.api.model.ArticleDto;
-import com.haapp.formicary.domain.model.Article;
-import com.haapp.formicary.domain.model.Category;
 import com.haapp.formicary.domain.service.ArticleService;
-import com.haapp.formicary.mapping.ArticleMapper;
-import com.haapp.formicary.mapping.CategoryMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;

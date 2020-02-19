@@ -19,8 +19,6 @@ spring:
       max-file-size: 1024KB
       max-request-size: 1024KB
 
-
-
 #AWS S3
 cloud:
   aws:
@@ -36,17 +34,15 @@ cloud:
       region: us-east-2
 
 #SOCIAL
-#  social:
-#    facebook:
-#      appId: 526762058188362
-#      appSecret: b01c60f2ef80147051454f4ceadcf1b6
-#    twitter:
-#      apiKey: uM2mWowm8xq8o6gp6buywbb51
-#      apiSecretKey: GSgplBaE8JJ3N0WkbZHZwRnNvvibTrWJw89AqzeFqBC3BvTgfp
-#      accessToken: 1219651235722203136-epn3m5DOQkTj3Ksna6po71medWwPN0
-#      accessTokenSecret: 5JQw4p4OgkTXdZTtvXYqDBc3vv1CvE2fkfWSij3pXJMp3
-
-#google
-#262215497220-ach1sfg32mrlmes6cp7meihp37ijk6oa.apps.googleusercontent.com
-#
-#  HDNykArT7aF0FrxXA8VlU8yX
+  social:
+    facebook:
+      appId: 526762058188362
+      appSecret: b01c60f2ef80147051454f4ceadcf1b6
+    twitter:
+      apiKey: uM2mWowm8xq8o6gp6buywbb51
+      apiSecretKey: GSgplBaE8JJ3N0WkbZHZwRnNvvibTrWJw89AqzeFqBC3BvTgfp
+      accessToken: 1219651235722203136-epn3m5DOQkTj3Ksna6po71medWwPN0
+      accessTokenSecret: 5JQw4p4OgkTXdZTtvXYqDBc3vv1CvE2fkfWSij3pXJMp3
+    google:
+      appSecret: 262215497220-ach1sfg32mrlmes6cp7meihp37ijk6oa.apps.googleusercontent.com
+      appId: HDNykArT7aF0FrxXA8VlU8yX
