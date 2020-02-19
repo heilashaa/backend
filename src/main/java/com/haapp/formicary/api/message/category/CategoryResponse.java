@@ -1,5 +1,6 @@
-package com.haapp.formicary.api.message;
+package com.haapp.formicary.api.message.category;
 
+import com.haapp.formicary.api.message.BaseResponse;
 import com.haapp.formicary.api.model.CategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryResponse extends BaseResponse{
+public class CategoryResponse extends BaseResponse {
 
     private CategoryDto categoryDto;
 }

@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,8 +21,16 @@ import java.util.Set;
 public class UserDto {
 
     private Long id;
-    private String userName;
+    @NotNull
+    @Size(min = 6)
+    private String username;
+    @NotNull
+    @Email
     private String email;
+    @NotNull
+    @Size(min = 8)
+    private String password;
+
     private UserRole role;
     private Integer status;
     private Integer theme;

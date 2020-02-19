@@ -18,8 +18,9 @@ import java.util.Set;
 public class User {
 
     private Long id;
-    private String userName;
+    private String username;
     private String email;
+    private String password;
     private UserRole role;
     private Integer status;
     private Integer theme;

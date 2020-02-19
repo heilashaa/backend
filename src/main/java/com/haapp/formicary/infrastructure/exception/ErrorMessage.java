@@ -11,5 +11,7 @@ public class ErrorMessage {
 
     public static String INTERNAL_SERVICE_ERROR = "internal.service.error";
     public static String VALIDATION_ERROR = "validation.error";
+
+    public static String USER_NOT_FOUND = "user.not.found";
 }
 

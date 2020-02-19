@@ -1,5 +1,6 @@
-package com.haapp.formicary.api.message;
+package com.haapp.formicary.api.message.category;
 
+import com.haapp.formicary.api.message.BaseResponse;
 import com.haapp.formicary.api.model.CategoryDto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoriesResponse extends BaseResponse{
+public class CategoriesResponse extends BaseResponse {
 
     private List<CategoryDto> categoriesDto;
 }

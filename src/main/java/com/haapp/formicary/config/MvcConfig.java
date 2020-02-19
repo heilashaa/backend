@@ -20,7 +20,9 @@ import java.util.Arrays;
 @AllArgsConstructor
 public class MvcConfig implements WebMvcConfigurer {
 
-    final private CommonData commonData;
+    private final CommonData commonData;
+
+    private static final Integer MAX_AGE = 3600;
 
     @Override
     @Order(value = Ordered.HIGHEST_PRECEDENCE)
@@ -34,7 +36,7 @@ public class MvcConfig implements WebMvcConfigurer {
                 .allowedOrigins("*")
                 .allowedHeaders("*")
                 .allowedMethods("PUT", "DELETE", "GET", "POST", "OPTIONS")
-                .allowCredentials(false);
+                .allowCredentials(false).maxAge(MAX_AGE);
     }
 
 //    @Bean

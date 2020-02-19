@@ -1,4 +1,4 @@
-package com.haapp.formicary.api.message;
+package com.haapp.formicary.api.message.article;
 
 import com.haapp.formicary.api.model.ArticleDto;
 import io.swagger.annotations.ApiParam;

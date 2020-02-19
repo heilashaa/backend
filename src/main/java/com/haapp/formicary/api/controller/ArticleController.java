@@ -1,8 +1,8 @@
 package com.haapp.formicary.api.controller;
 
-import com.haapp.formicary.api.message.ArticleRequest;
-import com.haapp.formicary.api.message.ArticleResponse;
-import com.haapp.formicary.api.message.ArticlesResponse;
+import com.haapp.formicary.api.message.article.ArticleRequest;
+import com.haapp.formicary.api.message.article.ArticleResponse;
+import com.haapp.formicary.api.message.article.ArticlesResponse;
 import com.haapp.formicary.api.model.ArticleDto;
 import com.haapp.formicary.domain.model.Article;
 import com.haapp.formicary.domain.service.ArticleService;
@@ -11,7 +11,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

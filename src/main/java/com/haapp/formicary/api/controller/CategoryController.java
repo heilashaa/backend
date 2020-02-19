@@ -1,8 +1,8 @@
 package com.haapp.formicary.api.controller;
 
-import com.haapp.formicary.api.message.CategoriesResponse;
-import com.haapp.formicary.api.message.CategoryRequest;
-import com.haapp.formicary.api.message.CategoryResponse;
+import com.haapp.formicary.api.message.category.CategoriesResponse;
+import com.haapp.formicary.api.message.category.CategoryRequest;
+import com.haapp.formicary.api.message.category.CategoryResponse;
 import com.haapp.formicary.api.model.CategoryDto;
 import com.haapp.formicary.domain.model.Category;
 import com.haapp.formicary.domain.service.CategoryService;
@@ -33,7 +33,7 @@ public class CategoryController {
 
     @ApiOperation(value = "Select all categories"/*,
             authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @GetMapping(name = "/")
+    @GetMapping("/")
     @ResponseStatus(OK)
     public CategoriesResponse getCategories() {
         List<Category> categories = categoryService.getAll();

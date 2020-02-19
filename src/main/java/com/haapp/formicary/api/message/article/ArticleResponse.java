@@ -1,5 +1,6 @@
-package com.haapp.formicary.api.message;
+package com.haapp.formicary.api.message.article;
 
+import com.haapp.formicary.api.message.BaseResponse;
 import com.haapp.formicary.api.model.ArticleDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleResponse extends BaseResponse{
+public class ArticleResponse extends BaseResponse {
 
     private ArticleDto articleDto;
 }

@@ -1,9 +1,6 @@
 package com.haapp.formicary.persistence.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,21 +11,20 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Table(name = "user")
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userName;
+    private String username;
     private String email;
     
     @Column
     @Enumerated(EnumType.STRING)
     private UserRole role;
-    private Integer status;
+    private String password;
     private Integer theme;
     private Integer language;
     

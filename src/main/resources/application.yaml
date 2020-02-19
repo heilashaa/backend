@@ -35,6 +35,7 @@ cloud:
       imagesBucket: heilash
       region: us-east-2
 
+#SOCIAL
 #  social:
 #    facebook:
 #      appId: 526762058188362
