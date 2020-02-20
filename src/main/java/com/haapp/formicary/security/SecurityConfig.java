@@ -30,7 +30,11 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] allowedUrlsForPost = new String[]{"/api/v1/auth/login"};
+    private static final String[] allowedUrlsForPost = new String[]
+            {
+            "/api/v1/auth/login",
+            "/api/v1/auth/registration"
+            };
 
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
 
@@ -77,6 +81,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(12);
     }
 }

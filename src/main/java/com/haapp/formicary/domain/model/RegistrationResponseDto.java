@@ -5,16 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.Size;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequestDto {
+public class RegistrationResponseDto {
 
-    @Size(min = 6, max = 50)
-    private String username;
-    @Size(min = 8, max = 50)
-    private String password;
+    private String token;
 }

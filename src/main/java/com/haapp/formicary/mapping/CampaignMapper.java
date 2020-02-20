@@ -1,6 +1,5 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.CampaignDtoQQQQ;
 import com.haapp.formicary.domain.model.CampaignDto;
 import com.haapp.formicary.persistence.model.Campaign;
 import org.mapstruct.Mapper;

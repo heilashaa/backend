@@ -11,7 +11,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "user")
 public class User {
 
@@ -20,13 +21,16 @@ public class User {
     private Long id;
     private String username;
     private String email;
-    
     @Column
     @Enumerated(EnumType.STRING)
     private UserRole role;
     private String password;
-    private Integer theme;
-    private Integer language;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private UserTheme theme;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private UserLanguage language;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Campaign> campaigns = new ArrayList<>();

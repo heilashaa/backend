@@ -1,5 +1,6 @@
 package com.haapp.formicary.mapping;
 
+import com.haapp.formicary.domain.model.AuthUserDto;
 import com.haapp.formicary.domain.model.UserDto;
 import com.haapp.formicary.persistence.model.User;
 import org.mapstruct.Mapper;
@@ -15,4 +16,6 @@ public interface UserMapper {
     User userDtoToUser(UserDto userDto);
 
     UserDto userToUserDto(User user);
+
+    AuthUserDto userToUserAuthDto(User user);
 }

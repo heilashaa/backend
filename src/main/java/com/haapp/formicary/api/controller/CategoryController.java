@@ -3,10 +3,8 @@ package com.haapp.formicary.api.controller;
 import com.haapp.formicary.api.message.category.CategoriesResponse;
 import com.haapp.formicary.api.message.category.CategoryRequest;
 import com.haapp.formicary.api.message.category.CategoryResponse;
-import com.haapp.formicary.api.model.CategoryDtoQQQ;
 import com.haapp.formicary.domain.model.CategoryDto;
 import com.haapp.formicary.domain.service.CategoryService;
-import com.haapp.formicary.mapping.CategoryMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -31,7 +28,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @ApiOperation(value = "Select all categories"/*, authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @GetMapping("/")
+    @GetMapping()
     @ResponseStatus(OK)
     public CategoriesResponse getCategories() {
         List<CategoryDto> categoriesDto = categoryService.getAll();
@@ -49,7 +46,7 @@ public class CategoryController {
     }
 
     @ApiOperation(value = "Add new category"/*,authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @PostMapping(value = "/", consumes = APPLICATION_JSON_VALUE)
+    @PostMapping(value = "", consumes = APPLICATION_JSON_VALUE)
     @ResponseStatus(CREATED)
     public CategoryResponse createCategory(
             @ApiParam(value = "Category", required = true)

@@ -3,10 +3,8 @@ package com.haapp.formicary.api.controller;
 import com.haapp.formicary.api.message.article.ArticleRequest;
 import com.haapp.formicary.api.message.article.ArticleResponse;
 import com.haapp.formicary.api.message.article.ArticlesResponse;
-import com.haapp.formicary.api.model.ArticleDtoQQQQ;
 import com.haapp.formicary.domain.model.ArticleDto;
 import com.haapp.formicary.domain.service.ArticleService;
-import com.haapp.formicary.mapping.ArticleMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -16,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -33,7 +30,7 @@ public class ArticleController {
     private ArticleService articleService;
 
     @ApiOperation(value = "Select all articles"/*, authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @GetMapping("/")
+    @GetMapping()
     @ResponseStatus(OK)
     public ArticlesResponse getArticles() {
         List<ArticleDto> articlesDto = articleService.getAll();
@@ -51,7 +48,7 @@ public class ArticleController {
     }
 
     @ApiOperation(value = "Add new article"/*, authorizations = {@Authorization(BASIC_AUTH)}*/)
-    @PostMapping(value = "/", consumes = {MULTIPART_FORM_DATA_VALUE/*, APPLICATION_JSON_VALUE*/})
+    @PostMapping(value = "", consumes = {MULTIPART_FORM_DATA_VALUE/*, APPLICATION_JSON_VALUE*/})
     @ResponseStatus(CREATED)
     public ArticleResponse createArticle(
             @ApiParam(value = "Article", required = true)

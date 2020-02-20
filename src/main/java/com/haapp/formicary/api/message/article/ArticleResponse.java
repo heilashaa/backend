@@ -1,7 +1,6 @@
 package com.haapp.formicary.api.message.article;
 
 import com.haapp.formicary.api.message.BaseResponse;
-import com.haapp.formicary.api.model.ArticleDtoQQQQ;
 import com.haapp.formicary.domain.model.ArticleDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

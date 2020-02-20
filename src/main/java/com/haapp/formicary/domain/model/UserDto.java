@@ -1,10 +1,7 @@
 package com.haapp.formicary.domain.model;
 
 import com.haapp.formicary.persistence.model.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -31,8 +28,8 @@ public class UserDto {
     @Size(min = 8)
     private String password;
     private UserRole role;
-    private Integer theme;
-    private Integer language;
+    private UserTheme theme;
+    private UserLanguage language;
 
     private List<CampaignDto> campaignsDto = new ArrayList<>();
 

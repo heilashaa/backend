@@ -1,6 +1,5 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.ArticleDtoQQQQ;
 import com.haapp.formicary.domain.model.ArticleDto;
 import com.haapp.formicary.persistence.model.Article;
 import org.mapstruct.Mapper;

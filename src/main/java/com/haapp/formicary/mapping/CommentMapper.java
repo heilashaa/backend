@@ -1,6 +1,5 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.CommentDtoQQQQ;
 import com.haapp.formicary.domain.model.CommentDto;
 import com.haapp.formicary.persistence.model.Comment;
 import org.mapstruct.Mapper;

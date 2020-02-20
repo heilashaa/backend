@@ -18,8 +18,7 @@ public class CategoryDto {
 
     private Long id;
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(min = 3, max = 50)
     private String name;
 //    private Set<Campaign> campaigns = new HashSet<>();
 }
-

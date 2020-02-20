@@ -1,6 +1,7 @@
 package com.haapp.formicary.security.service;
 
 import com.haapp.formicary.domain.model.UserDto;
+import com.haapp.formicary.infrastructure.exception.ExpiredTokenAuthException;
 import com.haapp.formicary.infrastructure.exception.InvalidTokenAuthException;
 import com.haapp.formicary.mapping.UserMapper;
 import com.haapp.formicary.persistence.model.User;
@@ -43,7 +44,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
 
     private void checkIsExpired(final Long tokenExpirationTime) {
         if ((System.currentTimeMillis() / MILLIS_IN_SECOND) > tokenExpirationTime) {
-            throw new InvalidTokenAuthException("Authentication token is expired");
+            throw new ExpiredTokenAuthException("Authentication token is expired");
         }
     }
 

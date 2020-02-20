@@ -1,6 +1,5 @@
 package com.haapp.formicary.mapping;
 
-import com.haapp.formicary.api.model.LikeDtoQQQQ;
 import com.haapp.formicary.domain.model.LikeDto;
 import com.haapp.formicary.persistence.model.Like;
 import org.mapstruct.Mapper;

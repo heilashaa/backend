@@ -40,8 +40,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
 
-    @ExceptionHandler({AuthException.class, InvalidTokenAuthException.class})
-    public final ResponseEntity<BaseResponse> handleAuthException(ServiceException e) {
+    @ExceptionHandler({AuthException.class})
+    public final ResponseEntity<BaseResponse> handleAuthException(AuthException e) {
         List<String> messages = new ArrayList<>();
         messages.add(messageFacade.getMessage(e.getCode()));
         Error error = new Error();
@@ -49,6 +49,28 @@ public class GlobalExceptionHandler {
         error.setMessages(messages);
         response.setError(error);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({InvalidTokenAuthException.class})
+    public final ResponseEntity<BaseResponse> handleTokenException(InvalidTokenAuthException e) {
+        List<String> messages = new ArrayList<>();
+        messages.add(messageFacade.getMessage(e.getCode()));
+        Error error = new Error();
+        error.setCode(e.getCode());
+        error.setMessages(messages);
+        response.setError(error);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({ExpiredTokenAuthException.class})
+    public final ResponseEntity<BaseResponse> handleExpiredTokenException(ExpiredTokenAuthException e) {
+        List<String> messages = new ArrayList<>();
+        messages.add(e.getMessage());
+        Error error = new Error();
+        error.setCode("token.expired.error");
+        error.setMessages(messages);
+        response.setError(error);
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler({NotFoundException.class})
@@ -95,7 +117,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler({Throwable.class})
+/*    @ExceptionHandler({Throwable.class})
     public final ResponseEntity<BaseResponse> handleAllException(Throwable e) {
         List<String> messages = new ArrayList<>();
         messages.add(messageFacade.getMessage(INTERNAL_SERVICE_ERROR));
@@ -106,7 +128,7 @@ public class GlobalExceptionHandler {
         error.setMessages(messages);
         response.setError(error);
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
-    }
+    }*/
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public final ResponseEntity<BaseResponse> handleValidationException(MethodArgumentNotValidException e) {
