@@ -6,6 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="Entities" />
           <factory-entry name="entityManagerFactory" value="8c74c058-3b0c-4172-8a2b-bf3f2ec6e934" />
         </datasource-mapping>
         <naming-strategy-map />
@@ -122,6 +123,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.19" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.10" level="project" />
+    <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:2.3.5" level="project" />
     <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.5.22" level="project" />
     <orderEntry type="library" name="Maven: io.swagger:swagger-models:1.5.22" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.2" level="project" />

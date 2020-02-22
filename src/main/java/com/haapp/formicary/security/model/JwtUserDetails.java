@@ -20,7 +20,7 @@ public class JwtUserDetails implements UserDetails {
 
     public JwtUserDetails(UserDto userDto) {
         this.id = userDto.getId();
-        this.username = userDto.getUsername();
+        this.username = userDto.getEmail();
         this.password = userDto.getPassword();
         this.authorities = new HashSet<>();
         this.authorities.add(new SimpleGrantedAuthority(userDto.getRole().name()));

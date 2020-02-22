@@ -14,7 +14,7 @@ public class LikeDto {
     private Long id;
     private Integer status;
 
-    private UserDto userDto;
+    private UserDto user;
 
-    private CommentDto commentDto;
+    private CommentDto comment;
 }

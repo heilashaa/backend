@@ -1,7 +1,7 @@
 package com.haapp.formicary.api.message.article;
 
 import com.haapp.formicary.api.message.BaseResponse;
-import com.haapp.formicary.domain.model.ArticleDto;
+import com.haapp.formicary.api.model.Article;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +15,5 @@ import java.util.List;
 @AllArgsConstructor
 public class ArticlesResponse extends BaseResponse {
 
-    private List<ArticleDto> articlesDto;
+    private List<Article> articles;
 }

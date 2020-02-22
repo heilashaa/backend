@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
 
+import static com.haapp.formicary.infrastructure.exception.ErrorMessage.TOKEN_NOT_FOUND_IN_REQUEST_HEADER;
+
 public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
     public JwtAuthenticationFilter(final AuthenticationManager authenticationManager) {
@@ -33,7 +35,7 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
             String token = Optional.ofNullable(request.getHeader(AuthHelper.AUTHENTICATION_HEADER))
                     .map(header -> header.substring(7)).orElse(null);
             if (Objects.isNull(token)) {
-                throw new BadCredentialsException("Token not found in request's header");
+                throw new BadCredentialsException(TOKEN_NOT_FOUND_IN_REQUEST_HEADER);
             }
             JwtAuthentication authRequest = new JwtAuthentication(token);
             return this.getAuthenticationManager().authenticate(authRequest);
@@ -47,9 +49,7 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
     protected void successfulAuthentication(final HttpServletRequest request, final HttpServletResponse response,
                                             final FilterChain chain, final Authentication authResult)
             throws IOException, ServletException {
-        // Set authentication to context
         SecurityContextHolder.getContext().setAuthentication(authResult);
-        // Fire event
         if (this.eventPublisher != null) {
             this.eventPublisher.publishEvent(new InteractiveAuthenticationSuccessEvent(authResult, this.getClass()));
         }

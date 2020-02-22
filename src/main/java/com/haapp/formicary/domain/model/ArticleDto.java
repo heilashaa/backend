@@ -19,5 +19,5 @@ public class ArticleDto {
     private String imageLink;
     private LocalDateTime creationDate;
 
-    private CampaignDto campaignDto;
+    private CampaignDto campaign;
 }

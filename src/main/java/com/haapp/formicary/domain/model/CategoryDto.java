@@ -20,5 +20,4 @@ public class CategoryDto {
     @NotNull
     @Size(min = 3, max = 50)
     private String name;
-//    private Set<Campaign> campaigns = new HashSet<>();
 }

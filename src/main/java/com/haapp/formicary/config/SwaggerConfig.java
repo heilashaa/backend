@@ -5,20 +5,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.BasicAuth;
 import springfox.documentation.service.Contact;
-import springfox.documentation.service.SecurityScheme;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.util.List;
-
-import static com.haapp.formicary.infrastructure.Constant.Service.BASIC_AUTH;
-import static java.util.Collections.singletonList;
+import java.util.Arrays;
 
 @Configuration
 @EnableSwagger2
@@ -32,23 +29,29 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public Docket apiDocket(){
+    public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.haapp.formicary"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(createApiInfo())
-                /*.globalOperationParameters(
-                        Arrays.asList(new ParameterBuilder()
-                                .name(X_LOCALE)
-                                .description("Locale header")
+                .globalOperationParameters(Arrays.asList(
+                        new ParameterBuilder()
+                                .name("Authorization")
                                 .modelRef(new ModelRef("string"))
                                 .parameterType("header")
                                 .required(true)
-                                .build()))*/
-                /*.securitySchemes(createSecuritySchemes())*/
-                /*.securityContexts()*/;
+                                .hidden(true)
+                                .build()
+                        ,
+                        new ParameterBuilder()
+                                .name("X-Locale")
+                                .modelRef(new ModelRef("string"))
+                                .parameterType("header")
+                                .required(true)
+                                .hidden(true)
+                                .build()));
     }
 
     private ApiInfo createApiInfo() {
@@ -65,8 +68,4 @@ public class SwaggerConfig {
                 ))
                 .build();
     }
-
-//    private List<SecurityScheme> createSecuritySchemes() {
-//        return singletonList(new BasicAuth(BASIC_AUTH));
-//    }
 }

@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+import static com.haapp.formicary.infrastructure.exception.ErrorMessage.*;
+
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationProvider implements AuthenticationProvider {
@@ -33,10 +35,10 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
         checkIsExpired(tokenPayload.getExpiration());
         Long userEntityId = tokenPayload.getUserId();
         if (Objects.isNull(userEntityId)) {
-            throw new InvalidTokenAuthException("Token does not contain a user id");
+            throw new InvalidTokenAuthException(TOKEN_NOT_CONTAIN_USER_ID);
         }
         User user = userRepository.findById(userEntityId)
-                .orElseThrow(() -> new InvalidTokenAuthException("Token does not contain existed user id"));
+                .orElseThrow(() -> new InvalidTokenAuthException(TOKEN_NOT_CONTAIN_EXISTED_USER_ID));
         UserDto userDto = UserMapper.INSTANCE.userToUserDto(user);
         JwtUserDetails userDetails = new JwtUserDetails(userDto);
         return new JwtAuthentication(userDetails);
@@ -44,7 +46,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
 
     private void checkIsExpired(final Long tokenExpirationTime) {
         if ((System.currentTimeMillis() / MILLIS_IN_SECOND) > tokenExpirationTime) {
-            throw new ExpiredTokenAuthException("Authentication token is expired");
+            throw new ExpiredTokenAuthException(AUTHENTICATION_TOKEN_EXPIRED);
         }
     }
 

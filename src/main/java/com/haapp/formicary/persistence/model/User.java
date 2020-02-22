@@ -32,7 +32,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserLanguage language;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+   /* @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Campaign> campaigns = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
@@ -42,7 +42,7 @@ public class User {
     private Set<Like> likes = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<Rating> ratings = new HashSet<>();
+    private Set<Rating> ratings = new HashSet<>();*/
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_bonus",

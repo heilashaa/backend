@@ -2,39 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14c65636-5ba1-42ff-83c1-5a728e812be7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/auth/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/auth/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/auth/RegistrationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/auth/RegistrationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/RegistrationRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/RegistrationResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/infrastructure/exception/ExpiredTokenAuthException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/UserLanguage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/UserTheme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/CampaignRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/CampaignResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/CampaignsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/CommentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/CommentResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/CommentsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/LikeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/LikeResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/RatingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/RatingResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/Article.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/Campaign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/CampaignRating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/CommentLikes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/Like.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/Rating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/ApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/ModelMapperUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/mapper/MapperConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/mapper/PropertyMapArticleUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/mapper/PropertyMapCampaignUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/mapper/PropertyMapLikeUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/mapper/PropertyMapRatingUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CampaignRating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CommentLikes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/RatingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/CampaignRating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/CommentLikes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formicary.iml" beforeDir="false" afterPath="$PROJECT_DIR$/formicary.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/ArticleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/CampaignController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/CampaignController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/article/ArticleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/article/ArticleRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/article/ArticleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/article/ArticleResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/auth/AuthRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/auth/AuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/auth/AuthResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/AuthUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/AuthUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/article/ArticlesResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/message/article/ArticlesResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/ArticleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/ArticleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CampaignDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CampaignDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CategoryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CommentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/CommentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/LikeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/LikeDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/LoginRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/LoginRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/LoginResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/LoginResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/RatingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/model/RatingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/ArticleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/infrastructure/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/infrastructure/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/ArticleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/ArticleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/CampaignMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/CampaignMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/LikeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/LikeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/RatingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/RatingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/mapping/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/CampaignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/CampaignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/infrastructure/exception/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/infrastructure/exception/ErrorMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Campaign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Campaign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Like.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/Rating.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/ArticleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/ArticleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/CampaignRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/CampaignRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/LikeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/LikeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/RatingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/RatingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/persistence/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/model/JwtAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/model/JwtAuthentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/model/JwtUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/model/JwtUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/AuthHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/AuthHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/JwtAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/JwtAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/JwtUserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service/JwtUserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-prod.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,25 +103,25 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary_test" type="feb32156:DbDataSourceImpl" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary_test" type="feb32156:DbDataSourceImpl" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary_test" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="formicarytest: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="formicary_test" type="feb32156:DbDataSourceImpl" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="formicarytest: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="formicarytest: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="category: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -127,7 +174,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="13.7.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring-security-example-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -151,8 +198,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.haapp.formicary.config" />
-      <recent name="com.haapp.formicary.domain.service" />
+      <recent name="com.haapp.formicary.domain.model" />
+      <recent name="com.haapp.formicary.api.message" />
+      <recent name="com.haapp.formicary.persistence.model" />
+      <recent name="com.haapp.formicary.api.model" />
+      <recent name="com.haapp.formicary.config.mapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/service" />
@@ -178,7 +228,17 @@
         <serviceView>
           <option name="contentProportion" value="0.23598655" />
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:formicary_test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:formicary_test" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@38c67aa5" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -217,7 +277,9 @@
       <workItem from="1581880299395" duration="167000" />
       <workItem from="1582031519773" duration="3235000" />
       <workItem from="1582039715190" duration="1970000" />
-      <workItem from="1582046295112" duration="78637000" />
+      <workItem from="1582046295112" duration="88389000" />
+      <workItem from="1582218303587" duration="11072000" />
+      <workItem from="1582303353758" duration="31069000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1580208554076</created>
@@ -317,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582148972295</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="article finish">
+      <created>1582203025735</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1582203025735</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,29 +428,33 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="349" y="200" width="800" height="784" key="#Intentions/61.24.1859.1056@61.24.1859.1056" timestamp="1580935257136" />
-    <state x="480" y="294" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582128748509">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="438" y="286" width="1034" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582225102741">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state x="438" y="286" width="1034" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.997@0.27.1920.997" timestamp="1582225102741" />
     <state x="480" y="294" key="#com.intellij.execution.impl.EditConfigurationsDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1582128748509" />
-    <state x="803" y="226" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1582186009585">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="766" y="218" width="374" height="560" key="#com.intellij.ide.util.MemberChooser" timestamp="1582309783972">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state x="766" y="218" key="#com.intellij.ide.util.MemberChooser/0.27.1920.997@0.27.1920.997" timestamp="1582309783972" />
     <state x="803" y="226" width="374" height="560" key="#com.intellij.ide.util.MemberChooser/61.24.1859.1056@61.24.1859.1056" timestamp="1582186009585" />
     <state x="442" y="422" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1580934160439">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="442" y="422" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1580934160439" />
-    <state x="725" y="397" width="530" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1581153785396">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="686" y="379" width="538" height="297" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582306454437">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
-    <state x="725" y="397" width="530" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/61.24.1859.1056@61.24.1859.1056" timestamp="1581153785396" />
+    <state x="686" y="379" width="538" height="297" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.27.1920.997@0.27.1920.997" timestamp="1582306454437" />
+    <state x="725" y="397" width="530" height="293" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/61.24.1859.1056@61.24.1859.1056" timestamp="1582206490192" />
     <state x="740" y="419" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1580934162990">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="740" y="419" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/61.24.1859.1056@61.24.1859.1056" timestamp="1580934162990" />
-    <state x="165" y="24" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582145519339">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="107" y="27" width="748" height="997" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582311722134">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state x="107" y="27" width="748" height="997" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1920.997@0.27.1920.997" timestamp="1582311722134" />
     <state x="165" y="24" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1582145519339" />
     <state x="684" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582149789205">
       <screen x="61" y="24" width="1859" height="1056" />
@@ -391,66 +464,80 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="728" y="288" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1581409011558" />
-    <state x="811" y="434" key="#xdebugger.evaluate" timestamp="1582198918126">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="775" y="329" width="1071" height="695" key="#xdebugger.evaluate" timestamp="1582320326195">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state x="775" y="329" width="1071" height="695" key="#xdebugger.evaluate/0.27.1920.997@0.27.1920.997" timestamp="1582320326195" />
     <state x="811" y="434" key="#xdebugger.evaluate/61.24.1859.1056@61.24.1859.1056" timestamp="1582198918126" />
-    <state x="547" y="133" key="CommitChangelistDialog2" timestamp="1582148971589">
+    <state x="547" y="133" key="CommitChangelistDialog2" timestamp="1582203025482">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="547" y="133" key="CommitChangelistDialog2/61.24.1859.1056@61.24.1859.1056" timestamp="1582148971589" />
-    <state x="778" y="297" key="FileChooserDialogImpl" timestamp="1582132528999">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="547" y="133" key="CommitChangelistDialog2/61.24.1859.1056@61.24.1859.1056" timestamp="1582203025482" />
+    <state x="741" y="285" width="424" height="491" key="FileChooserDialogImpl" timestamp="1582312398214">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state x="741" y="285" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.997@0.27.1920.997" timestamp="1582312398214" />
     <state x="773" y="295" key="FileChooserDialogImpl/53.21.1867.1059@53.21.1867.1059" timestamp="1580671064121" />
     <state x="778" y="297" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1582132528999" />
-    <state width="1813" height="296" key="GridCell.Tab.0.bottom" timestamp="1582199747974">
+    <state width="1813" height="285" key="GridCell.Tab.0.bottom" timestamp="1582395152930">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747974" />
-    <state width="1813" height="296" key="GridCell.Tab.0.center" timestamp="1582199747973">
+    <state width="1874" height="196" key="GridCell.Tab.0.bottom/0.27.1920.997@0.27.1920.997" timestamp="1582330633038" />
+    <state width="1813" height="285" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1582395152930" />
+    <state width="1813" height="285" key="GridCell.Tab.0.center" timestamp="1582395152928">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747973" />
-    <state width="1813" height="296" key="GridCell.Tab.0.left" timestamp="1582199747973">
+    <state width="1874" height="196" key="GridCell.Tab.0.center/0.27.1920.997@0.27.1920.997" timestamp="1582330633037" />
+    <state width="1813" height="285" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1582395152928" />
+    <state width="1813" height="285" key="GridCell.Tab.0.left" timestamp="1582395152927">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747973" />
-    <state width="1813" height="296" key="GridCell.Tab.0.right" timestamp="1582199747974">
+    <state width="1874" height="196" key="GridCell.Tab.0.left/0.27.1920.997@0.27.1920.997" timestamp="1582330633036" />
+    <state width="1813" height="285" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1582395152927" />
+    <state width="1813" height="285" key="GridCell.Tab.0.right" timestamp="1582395152929">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747974" />
-    <state width="1813" height="296" key="GridCell.Tab.1.bottom" timestamp="1582199747978">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.0.right/0.27.1920.997@0.27.1920.997" timestamp="1582330633038" />
+    <state width="1813" height="285" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1582395152929" />
+    <state width="1874" height="196" key="GridCell.Tab.1.bottom" timestamp="1582330632808">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747978" />
-    <state width="1813" height="296" key="GridCell.Tab.1.center" timestamp="1582199747977">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.1.bottom/0.27.1920.997@0.27.1920.997" timestamp="1582330632808" />
+    <state width="1813" height="296" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1582206497850" />
+    <state width="1874" height="196" key="GridCell.Tab.1.center" timestamp="1582330632807">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747977" />
-    <state width="1813" height="296" key="GridCell.Tab.1.left" timestamp="1582199747976">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.1.center/0.27.1920.997@0.27.1920.997" timestamp="1582330632807" />
+    <state width="1813" height="296" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1582206497849" />
+    <state width="1874" height="196" key="GridCell.Tab.1.left" timestamp="1582330632807">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747976" />
-    <state width="1813" height="296" key="GridCell.Tab.1.right" timestamp="1582199747977">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.1.left/0.27.1920.997@0.27.1920.997" timestamp="1582330632807" />
+    <state width="1813" height="296" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1582206497849" />
+    <state width="1874" height="196" key="GridCell.Tab.1.right" timestamp="1582330632807">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
-    <state width="1813" height="296" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1582199747977" />
-    <state width="1813" height="370" key="GridCell.Tab.2.bottom" timestamp="1582199203342">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.1.right/0.27.1920.997@0.27.1920.997" timestamp="1582330632807" />
+    <state width="1813" height="296" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1582206497850" />
+    <state width="1874" height="196" key="GridCell.Tab.2.bottom" timestamp="1582330632808">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state width="1874" height="196" key="GridCell.Tab.2.bottom/0.27.1920.997@0.27.1920.997" timestamp="1582330632808" />
     <state width="1813" height="370" key="GridCell.Tab.2.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1582199203342" />
-    <state width="1813" height="370" key="GridCell.Tab.2.center" timestamp="1582199203342">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.2.center" timestamp="1582330632808">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state width="1874" height="196" key="GridCell.Tab.2.center/0.27.1920.997@0.27.1920.997" timestamp="1582330632808" />
     <state width="1813" height="370" key="GridCell.Tab.2.center/61.24.1859.1056@61.24.1859.1056" timestamp="1582199203342" />
-    <state width="1813" height="370" key="GridCell.Tab.2.left" timestamp="1582199203342">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.2.left" timestamp="1582330632808">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state width="1874" height="196" key="GridCell.Tab.2.left/0.27.1920.997@0.27.1920.997" timestamp="1582330632808" />
     <state width="1813" height="370" key="GridCell.Tab.2.left/61.24.1859.1056@61.24.1859.1056" timestamp="1582199203342" />
-    <state width="1813" height="370" key="GridCell.Tab.2.right" timestamp="1582199203342">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1874" height="196" key="GridCell.Tab.2.right" timestamp="1582330632808">
+      <screen x="0" y="27" width="1920" height="997" />
     </state>
+    <state width="1874" height="196" key="GridCell.Tab.2.right/0.27.1920.997@0.27.1920.997" timestamp="1582330632808" />
     <state width="1813" height="370" key="GridCell.Tab.2.right/61.24.1859.1056@61.24.1859.1056" timestamp="1582199203342" />
     <state x="528" y="197" key="Maven.ArtifactSearchDialog" timestamp="1581182962904">
       <screen x="61" y="24" width="1859" height="1056" />
@@ -501,10 +588,47 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="209" y="246" key="run.anything.popup/61.24.1859.1056@61.24.1859.1056" timestamp="1582108066755" />
-    <state x="653" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1582158195120">
+    <state x="653" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1582395068816">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="653" y="236" width="672" height="678" key="search.everywhere.popup/61.24.1859.1056@61.24.1859.1056" timestamp="1582158195120" />
+    <state x="611" y="227" width="695" height="641" key="search.everywhere.popup/0.27.1920.997@0.27.1920.997" timestamp="1582331985032" />
+    <state x="653" y="236" width="672" height="678" key="search.everywhere.popup/61.24.1859.1056@61.24.1859.1056" timestamp="1582395068816" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/handler/RestAccessDeniedHandler.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/haapp/formicary/security/handler/RestAuthenticationEntryPoint.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/CampaignService.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/haapp/formicary/api/controller/CampaignController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/CampaignService.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/haapp/formicary/domain/service/CampaignService.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

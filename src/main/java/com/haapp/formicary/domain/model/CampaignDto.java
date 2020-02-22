@@ -16,6 +16,7 @@ import java.util.Set;
 public class CampaignDto {
 
     private Long id;
+    private UserDto user;
     private String name;
     private String description;
     private Integer targetAmount;
@@ -24,19 +25,17 @@ public class CampaignDto {
     private LocalDateTime expirationDate;
     private LocalDateTime modificationDate;
 
-    private UserDto userDto;
+    private CampaignRating rating;
 
-    private CategoryDto categoryDto;
+    private CategoryDto category;
 
-    private Set<BonusDto> bonusesDto = new HashSet<>();
+    private Set<BonusDto> bonuses = new HashSet<>();
 
-    private Set<CommentDto> commentsDto = new HashSet<>();
+    private Set<CommentDto> comments = new HashSet<>();
 
-    private Set<ArticleDto> articlesDto = new HashSet<>();
+   // private Set<ArticleDto> articles = new HashSet<>();
 
-    private Set<RatingDto> ratingsDto = new HashSet<>();
+    private Set<ImageDto> images = new HashSet<>();
 
-    private Set<ImageDto> imagesDto = new HashSet<>();
-
-    private Set<TagDto> tagsDto;
+    private Set<TagDto> tags;
 }

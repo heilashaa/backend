@@ -14,7 +14,7 @@ public class RatingDto {
     private Long id;
     private Integer value;
 
-    private UserDto userDto;
+    private UserDto user;
 
-    private CampaignDto campaignDto;
+    private CampaignDto campaign;
 }

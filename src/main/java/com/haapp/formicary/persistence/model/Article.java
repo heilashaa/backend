@@ -25,7 +25,7 @@ public class Article {
     private String imageLink;
     @CreationTimestamp
     private LocalDateTime creationDate;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "article_campaign_FK"))
     private Campaign campaign;
 }

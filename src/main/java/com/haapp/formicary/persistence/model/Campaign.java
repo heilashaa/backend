@@ -33,11 +33,11 @@ public class Campaign {
     @UpdateTimestamp
     private LocalDateTime modificationDate;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "campaign_user_FK"))
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY,  optional = false)
     @JoinColumn(name = "category_id", nullable = false, foreignKey = @ForeignKey(name = "campaign_category_FK"))
     private Category category;
 
@@ -50,8 +50,8 @@ public class Campaign {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<Article> articles = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
-    private Set<Rating> ratings = new HashSet<>();
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "campaign")
+    private CampaignRating rating;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<Image> images = new HashSet<>();

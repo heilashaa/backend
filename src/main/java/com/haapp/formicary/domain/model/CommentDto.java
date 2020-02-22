@@ -19,9 +19,10 @@ public class CommentDto {
     private String text;
     private LocalDateTime launchDate;
 
-    private CampaignDto campaignDto;
+    private CommentLikes likes;
 
-    private UserDto userDto;
+    private CampaignDto campaign;
 
-    private Set<LikeDto> likesDto = new HashSet<>();
+    private UserDto user;
+
 }

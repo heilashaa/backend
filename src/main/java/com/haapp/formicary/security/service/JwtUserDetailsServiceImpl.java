@@ -21,7 +21,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User username = userRepository.findByUsername(s).
+        User username = userRepository.findByEmail(s).
                 orElseThrow(() -> new AuthException(USER_NOT_FOUND));;
         return new JwtUserDetails(UserMapper.INSTANCE.userToUserDto(username));
     }

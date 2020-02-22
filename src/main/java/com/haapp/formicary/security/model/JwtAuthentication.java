@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Objects;
 
+import static com.haapp.formicary.infrastructure.exception.ErrorMessage.CAN_SET_THIS_TOKEN;
+
 public class JwtAuthentication implements Authentication {
 
     private final JwtUserDetails userDetails;
@@ -64,7 +66,7 @@ public class JwtAuthentication implements Authentication {
     @Override
     public void setAuthenticated(final boolean isAuthenticated) {
         if (isAuthenticated) {
-            throw new IllegalArgumentException("Once created you cannot set this token to authenticated.");
+            throw new IllegalArgumentException(CAN_SET_THIS_TOKEN);
         }
         this.isAuthenticated = false;
     }

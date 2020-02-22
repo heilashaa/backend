@@ -24,14 +24,15 @@ public class Comment {
     private String text;
     private LocalDateTime launchDate;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "comment_campaign_FK"))
     private Campaign campaign;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY,  optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "comment_user_FK"))
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comment")
-    private Set<Like> likes = new HashSet<>();
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "comment")
+    private CommentLikes likes;
+
 }

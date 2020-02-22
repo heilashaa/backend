@@ -36,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/api/v1/auth/registration"
             };
 
+
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
 
     private final UserDetailsService userDetailsService;
@@ -64,11 +65,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(new RestAccessDeniedHandler());
     }
 
+
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring()
-                .antMatchers(HttpMethod.POST, allowedUrlsForPost)
-                .antMatchers(HttpMethod.OPTIONS, "/**");
+        web.ignoring().antMatchers("/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**")
+                .antMatchers(HttpMethod.POST, allowedUrlsForPost);
     }
 
     @Override

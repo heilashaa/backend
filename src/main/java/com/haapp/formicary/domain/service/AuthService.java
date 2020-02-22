@@ -22,6 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+import static com.haapp.formicary.infrastructure.exception.ErrorMessage.*;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -34,37 +36,37 @@ public class AuthService {
     @Transactional
     public LoginResponseDto login(final LoginRequestDto loginRequestDto) {
         try{
-            String username = Optional.ofNullable(loginRequestDto.getUsername())
-                    .orElseThrow(() -> new BadCredentialsException("Username should be passed"));
+            String email = Optional.ofNullable(loginRequestDto.getEmail())
+                    .orElseThrow(() -> new BadCredentialsException(EMAIL_SHOULD_BE_PASSED));
             String password = Optional.ofNullable(loginRequestDto.getPassword())
-                    .orElseThrow(() -> new BadCredentialsException("Password should be passed"));
+                    .orElseThrow(() -> new BadCredentialsException(PASSWORD_SHOULD_BE_PASSED));
             UsernamePasswordAuthenticationToken authRequest =
-                    new UsernamePasswordAuthenticationToken(username, password);
+                    new UsernamePasswordAuthenticationToken(email, password);
             final Authentication authResult = this.authenticationManager.authenticate(authRequest);
             if (authResult.isAuthenticated()) {
                 JwtUserDetails userDetails = (JwtUserDetails) authResult.getPrincipal();
                 if (!userRepository.existsById(userDetails.getId())) {
-                    throw new AuthException("User not exist in system");
+                    throw new AuthException(USER_NOT_EXIST);
                 }
                 String token = this.authenticationHelper.generateToken(userDetails.getId());
                 return new LoginResponseDto(token);
             } else {
-                throw new AuthException("Authentication failed");
+                throw new AuthException(AUTHENTICATION_FAILED);
             }
         } catch (BadCredentialsException exception) {
-            throw new AuthException("Username or password was incorrect. Please try again");
+            throw new AuthException(INCORRECT_AYTH_DATA);
         }
     }
 
     private UserDto registeredUserInSystem(final RegistrationRequestDto registrationRequestDto) {
         String username = Optional.ofNullable(registrationRequestDto.getUsername())
-                .orElseThrow(() -> new AuthException("Username should be passed"));
+                .orElseThrow(() -> new AuthException(USERNAME_SHOULD_BE_PASSED));
         String email = Optional.ofNullable(registrationRequestDto.getEmail())
-                .orElseThrow(() -> new AuthException("Email should be passed"));
+                .orElseThrow(() -> new AuthException(EMAIL_SHOULD_BE_PASSED));
         String password = Optional.ofNullable(registrationRequestDto.getPassword())
-                .orElseThrow(() -> new AuthException("Password should be passed"));
+                .orElseThrow(() -> new AuthException(PASSWORD_SHOULD_BE_PASSED));
         if(userRepository.existsByEmail(email)){
-            throw new AuthException("Email Address already in use!");
+            throw new AuthException(EMAIL_ALREADY_USE);
         }
         UserDto userDto = new UserDto();
         userDto.setUsername(username);
@@ -80,9 +82,9 @@ public class AuthService {
     }
 
     @Transactional
-    public RegistrationResponseDto registrationWithLogin(final RegistrationRequestDto registrationRequestDto) {
+    public RegistrationResponseDto registrationAndLogin(final RegistrationRequestDto registrationRequestDto) {
         UserDto userDto = registeredUserInSystem(registrationRequestDto);
-        LoginRequestDto loginRequestDto = new LoginRequestDto(userDto.getUsername(), userDto.getPassword());
+        LoginRequestDto loginRequestDto = new LoginRequestDto(userDto.getEmail(), userDto.getPassword());
         LoginResponseDto loginResponseDto = login(loginRequestDto);
         return new RegistrationResponseDto(loginResponseDto.getToken());
      }
@@ -92,10 +94,10 @@ public class AuthService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         boolean checkAuthenticationExists = authentication != null && authentication.isAuthenticated();
         if (checkAuthenticationExists) {
-            User byUsername = userRepository.findByUsername(authentication.getName())
-                    .orElseThrow(() -> new AuthException("User not exist in system"));
-            return UserMapper.INSTANCE.userToUserAuthDto(byUsername);
+            User byEmail = userRepository.findByEmail(authentication.getName())
+                    .orElseThrow(() -> new AuthException(USER_NOT_EXIST));
+            return UserMapper.INSTANCE.userToUserAuthDto(byEmail);
         }
-        throw new AuthException("Authentication failed");
+        throw new AuthException(AUTHENTICATION_FAILED);
     }
 }

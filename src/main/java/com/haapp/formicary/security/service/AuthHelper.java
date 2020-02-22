@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.Objects;
 
+import static com.haapp.formicary.infrastructure.exception.ErrorMessage.*;
+
 @Component
 @RequiredArgsConstructor
 public class AuthHelper {
@@ -38,26 +40,26 @@ public class AuthHelper {
             String token = this.objectMapper.writeValueAsString(payload);
             return JwtHelper.encode(token, new MacSigner(SECRET)).getEncoded();
         } catch (JsonProcessingException e) {
-            throw new InternalAuthenticationServiceException("Error generating token", e);
+            throw new InternalAuthenticationServiceException(ERROR_GENERATING_TOKEN, e);
         }
     }
 
     public TokenPayload decodeToken(final String token) {
         if (Objects.isNull(token)) {
-            throw new InvalidTokenAuthException("Token was null or blank");
+            throw new InvalidTokenAuthException(TOKEN_NULL_OR_BLANK);
         }
         Jwt jwt = JwtHelper.decode(token);
         try {
             jwt.verifySignature(new MacSigner(SECRET));
         } catch (Exception exception) {
-            throw new InvalidTokenAuthException("Token signature verification failed");
+            throw new InvalidTokenAuthException(TOKEN_SIGNATURE_VERIFICATION_FAILED);
         }
         String claims = jwt.getClaims();
         TokenPayload tokenPayload;
         try {
             tokenPayload = this.objectMapper.readValue(claims, TokenPayload.class);
         } catch (IOException exception) {
-            throw new InvalidTokenAuthException("Token parsing failed");
+            throw new InvalidTokenAuthException(TOKEN_PARSING_FAILED);
         }
         return tokenPayload;
     }
