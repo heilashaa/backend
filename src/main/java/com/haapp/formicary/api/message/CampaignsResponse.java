@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message;
 
-import com.haapp.formicary.api.model.Campaign;
+import com.haapp.formicary.api.model.CampaignApi;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,5 +14,5 @@ import java.util.List;
 @NoArgsConstructor
 public class CampaignsResponse extends BaseResponse{
 
-    private List<Campaign> campaigns;
+    private List<CampaignApi> campaigns;
 }

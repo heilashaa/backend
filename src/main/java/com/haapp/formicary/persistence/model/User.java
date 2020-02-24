@@ -31,22 +31,7 @@ public class User {
     @Column
     @Enumerated(EnumType.STRING)
     private UserLanguage language;
-    
-   /* @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Campaign> campaigns = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<Comment> comments = new HashSet<>();
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<Like> likes = new HashSet<>();
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private Set<Rating> ratings = new HashSet<>();*/
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_bonus",
-            joinColumns = @JoinColumn(name = "user_id"), foreignKey = @ForeignKey(name = "bonus_user_FK"),
-            inverseJoinColumns = @JoinColumn(name = "bonus_id") , inverseForeignKey = @ForeignKey(name = "user_bonus_FK"))
-    private Set<Bonus> bonuses  = new HashSet<>();
+    private Set<UserBonus> userBonuses  = new HashSet<>();
 }

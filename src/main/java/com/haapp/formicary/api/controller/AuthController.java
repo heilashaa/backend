@@ -1,8 +1,8 @@
 package com.haapp.formicary.api.controller;
 
 import com.haapp.formicary.api.message.auth.*;
-import com.haapp.formicary.domain.model.LoginRequestDto;
-import com.haapp.formicary.domain.model.RegistrationRequestDto;
+import com.haapp.formicary.domain.model.LoginData;
+import com.haapp.formicary.domain.model.RegistrationData;
 import com.haapp.formicary.domain.service.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +29,7 @@ public class AuthController {
     public LoginResponse login(
             @ApiParam(value = "Login data {email, password}", required = true)
             @RequestBody @Valid LoginRequest request) {
-        LoginRequestDto loginRequestDto = request.getLoginRequestDto();
+        LoginData loginRequestDto = request.getLoginRequest();
         return new LoginResponse(authService.login(loginRequestDto));
     }
 
@@ -46,8 +46,18 @@ public class AuthController {
     public RegistrationResponse registration(
             @ApiParam(value = "Registration data {username, email, password}", required = true)
             @RequestBody @Valid RegistrationRequest request) {
-        RegistrationRequestDto registrationRequestDto = request.getRegistrationRequestDto();
+        RegistrationData registrationRequestDto = request.getRegistrationRequest();
         return new RegistrationResponse(authService.registrationAndLogin(registrationRequestDto));
+    }
+
+    @ApiOperation(value = "Social login with google or facebook account")
+    @PostMapping(value = "/social-login", consumes = APPLICATION_JSON_VALUE)
+    @ResponseStatus(OK)
+    public SocialLoginResponse socialLogin(
+            @ApiParam(value = "Login data {username, email, password}", required = true)
+            @RequestBody @Valid RegistrationRequest request) {
+        RegistrationData registrationRequestDto = request.getRegistrationRequest();
+        return new SocialLoginResponse(authService.socialLogin(registrationRequestDto));
     }
 }
 

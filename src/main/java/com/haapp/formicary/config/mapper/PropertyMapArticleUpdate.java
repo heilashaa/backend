@@ -1,11 +1,11 @@
 package com.haapp.formicary.config.mapper;
 
-import com.haapp.formicary.domain.model.ArticleDto;
+import com.haapp.formicary.domain.model.Article;
 import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PropertyMapArticleUpdate extends PropertyMap<ArticleDto, ArticleDto> {
+public class PropertyMapArticleUpdate extends PropertyMap<Article, Article> {
 
     @Override
     protected void configure() {

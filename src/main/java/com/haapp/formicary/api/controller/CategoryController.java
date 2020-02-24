@@ -1,7 +1,7 @@
 package com.haapp.formicary.api.controller;
 
-import com.haapp.formicary.api.message.category.CategoriesResponse;
-import com.haapp.formicary.domain.model.CategoryDto;
+import com.haapp.formicary.api.message.CategoriesResponse;
+import com.haapp.formicary.domain.model.Category;
 import com.haapp.formicary.domain.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,7 +28,7 @@ public class CategoryController {
     @GetMapping()
     @ResponseStatus(OK)
     public CategoriesResponse getCategories() {
-        List<CategoryDto> categoriesDto = categoryService.getAll();
+        List<Category> categoriesDto = categoryService.getAll();
         return new CategoriesResponse(categoriesDto);
     }
 }

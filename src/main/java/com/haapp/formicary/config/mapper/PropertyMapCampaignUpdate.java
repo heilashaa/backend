@@ -1,11 +1,11 @@
 package com.haapp.formicary.config.mapper;
 
-import com.haapp.formicary.domain.model.CampaignDto;
+import com.haapp.formicary.domain.model.Campaign;
 import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PropertyMapCampaignUpdate extends PropertyMap<CampaignDto, CampaignDto> {
+public class PropertyMapCampaignUpdate extends PropertyMap<Campaign, Campaign> {
 
     @Override
     protected void configure() {

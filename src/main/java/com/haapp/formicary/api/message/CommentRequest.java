@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message;
 
-import com.haapp.formicary.api.model.Comment;
+import com.haapp.formicary.api.model.CommentApi;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 public class CommentRequest {
 
-    private Comment comment;
+    private CommentApi comment;
 }

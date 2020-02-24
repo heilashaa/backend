@@ -2,8 +2,6 @@ package com.haapp.formicary.domain.service;
 
 import com.haapp.formicary.domain.model.*;
 import com.haapp.formicary.infrastructure.exception.NotFoundException;
-import com.haapp.formicary.persistence.model.Comment;
-import com.haapp.formicary.persistence.model.Like;
 import com.haapp.formicary.persistence.repository.CommentRepository;
 import com.haapp.formicary.persistence.repository.LikeRepository;
 import lombok.AllArgsConstructor;
@@ -27,7 +25,7 @@ public class CommentService {
     private ModelMapper modelMapper;
 
 
-    public CommentDto addComment(Long campaignId, CommentDto comment){
+    public Comment addComment(Long campaignId, Comment comment){
         if(nonNull(comment)) {
             var campaign = campaignService.findByIdRequired(campaignId);
             comment.setCampaign(campaign);
@@ -37,12 +35,12 @@ public class CommentService {
         return null;
     }
 
-    public LikeDto likeComment(Long commentId, LikeDto like){
+    public Like likeComment(Long commentId, Like like){
         var comment = findByIdRequired(commentId);
         var user = userService.getCurrentUser();
         var optional = findByUserAndComment(user, comment);
         if(optional.isPresent()){
-            LikeDto saved = optional.get();
+            Like saved = optional.get();
             modelMapper.map(like, saved);
             return saveLike(saved);
         } else {
@@ -52,31 +50,31 @@ public class CommentService {
         }
     }
 
-    public CommentDto findByIdRequired(Long id){
+    public Comment findByIdRequired(Long id){
         var optional = commentRepository.findById(id);
-        return optional.map(comment -> modelMapper.map(comment, CommentDto.class))
+        return optional.map(comment -> modelMapper.map(comment, Comment.class))
                 .orElseThrow(()-> new NotFoundException(""));
     }
 
-    public List<CommentDto> findByCampaignId(Long campaignId){
+    public List<Comment> findByCampaignId(Long campaignId){
         var articles = commentRepository.findAllByCampaignIdOrderByLaunchDate(campaignId);
-        return asList(modelMapper.map(articles, CommentDto[].class));
+        return asList(modelMapper.map(articles, Comment[].class));
     }
 
-    public CommentDto save(CommentDto comment) {
-        var dataComment = modelMapper.map(comment, Comment.class);
+    public Comment save(Comment comment) {
+        var dataComment = modelMapper.map(comment, com.haapp.formicary.persistence.model.Comment.class);
         dataComment  = commentRepository.save(dataComment);
-        return modelMapper.map(dataComment, CommentDto.class);
+        return modelMapper.map(dataComment, Comment.class);
     }
 
-    public LikeDto saveLike(LikeDto like) {
-        var dataLike = modelMapper.map(like, Like.class);
+    public Like saveLike(Like like) {
+        var dataLike = modelMapper.map(like, com.haapp.formicary.persistence.model.Like.class);
         dataLike  = likeRepository.save(dataLike);
-        return modelMapper.map(dataLike, LikeDto.class);
+        return modelMapper.map(dataLike, Like.class);
     }
 
-    public Optional<LikeDto> findByUserAndComment(UserDto user, CommentDto comment) {
+    public Optional<Like> findByUserAndComment(User user, Comment comment) {
         return likeRepository.findByUserIdAndCommentId(user.getId(), comment.getId())
-                .map(like -> modelMapper.map(like, LikeDto.class));
+                .map(like -> modelMapper.map(like, Like.class));
     }
 }

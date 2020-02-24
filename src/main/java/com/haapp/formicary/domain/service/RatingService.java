@@ -1,9 +1,8 @@
 package com.haapp.formicary.domain.service;
 
-import com.haapp.formicary.domain.model.CampaignDto;
-import com.haapp.formicary.domain.model.RatingDto;
-import com.haapp.formicary.domain.model.UserDto;
-import com.haapp.formicary.persistence.model.Rating;
+import com.haapp.formicary.domain.model.Campaign;
+import com.haapp.formicary.domain.model.Rating;
+import com.haapp.formicary.domain.model.User;
 import com.haapp.formicary.persistence.repository.RatingRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -20,12 +19,12 @@ public class RatingService {
     private CampaignService campaignService;
     private UserService userService;
 
-    public RatingDto updateRating(Long campaignId, RatingDto ratingDto){
+    public Rating updateRating(Long campaignId, Rating ratingDto){
         var company = campaignService.findByIdRequired(campaignId);
         var user = userService.getCurrentUser();
         var optional = findByUserAndCampaign(user, company);
         if(optional.isPresent()){
-            RatingDto saved = optional.get();
+            Rating saved = optional.get();
             modelMapper.map(ratingDto, saved);
             return save(saved);
         } else {
@@ -35,15 +34,15 @@ public class RatingService {
         }
     }
 
-    public RatingDto save(RatingDto rating) {
-        var dataRating = modelMapper.map(rating, Rating.class);
+    public Rating save(Rating rating) {
+        var dataRating = modelMapper.map(rating, com.haapp.formicary.persistence.model.Rating.class);
         dataRating = ratingRepository.save(dataRating);
-        return modelMapper.map(dataRating, RatingDto.class);
+        return modelMapper.map(dataRating, Rating.class);
     }
 
 
-    public Optional<RatingDto> findByUserAndCampaign(UserDto user, CampaignDto campaign) {
+    public Optional<Rating> findByUserAndCampaign(User user, Campaign campaign) {
         return ratingRepository.findByUserIdAndCampaignId(user.getId(), campaign.getId())
-                .map(rating -> modelMapper.map(rating, RatingDto.class));
+                .map(rating -> modelMapper.map(rating, Rating.class));
     }
 }

@@ -1,16 +1,15 @@
 package com.haapp.formicary.security.service;
 
-import com.haapp.formicary.domain.model.UserDto;
+import com.haapp.formicary.domain.model.User;
 import com.haapp.formicary.infrastructure.exception.ExpiredTokenAuthException;
 import com.haapp.formicary.infrastructure.exception.InvalidTokenAuthException;
-import com.haapp.formicary.mapping.UserMapper;
-import com.haapp.formicary.persistence.model.User;
 import com.haapp.formicary.persistence.repository.UserRepository;
 import com.haapp.formicary.security.model.JwtAuthentication;
 import com.haapp.formicary.security.model.JwtUserDetails;
 import com.haapp.formicary.security.model.TokenPayload;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -27,6 +26,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
 
     private final UserRepository userRepository;
     private final AuthHelper authenticationHelper;
+    private final ModelMapper modelMapper;
 
     @Override
     public Authentication authenticate(final Authentication authRequest) {
@@ -37,10 +37,10 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
         if (Objects.isNull(userEntityId)) {
             throw new InvalidTokenAuthException(TOKEN_NOT_CONTAIN_USER_ID);
         }
-        User user = userRepository.findById(userEntityId)
+       var dataUser = userRepository.findById(userEntityId)
                 .orElseThrow(() -> new InvalidTokenAuthException(TOKEN_NOT_CONTAIN_EXISTED_USER_ID));
-        UserDto userDto = UserMapper.INSTANCE.userToUserDto(user);
-        JwtUserDetails userDetails = new JwtUserDetails(userDto);
+        User user = modelMapper.map(dataUser, User.class);
+        JwtUserDetails userDetails = new JwtUserDetails(user);
         return new JwtAuthentication(userDetails);
     }
 

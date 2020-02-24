@@ -27,5 +27,7 @@ public class ErrorMessage {
     public static String TOKEN_NOT_CONTAIN_USER_ID = "token.not.contain.user.id";
     public static String TOKEN_NOT_CONTAIN_EXISTED_USER_ID = "token.not.contain.existed.user.id";
     public static String AUTHENTICATION_TOKEN_EXPIRED = "authentication.token.expired";
+    public static String SOCIAL_LOGIN_FAILED = "social.login.failed";
+
 }
 

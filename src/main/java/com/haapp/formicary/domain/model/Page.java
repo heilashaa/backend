@@ -16,7 +16,7 @@ public class Page<C> {
 
     private int totalPages;
 
-    private List<C> elements;
+    private List<C> content;
 
     private int number;
 }

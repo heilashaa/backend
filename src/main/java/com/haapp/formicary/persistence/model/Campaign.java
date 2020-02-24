@@ -5,9 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,15 +21,17 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
+@Indexed
 @Table(name = "campaign")
-public class Campaign {
+public class Campaign implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Field
     private String name;
+    @Field
     private String description;
     private Integer targetAmount;
     private String video;
@@ -44,13 +52,15 @@ public class Campaign {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<Bonus> bonuses = new HashSet<>();
 
+    @IndexedEmbedded
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<Comment> comments = new HashSet<>();
 
+    @IndexedEmbedded
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
     private Set<Article> articles = new HashSet<>();
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "campaign")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "campaign")
     private CampaignRating rating;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "campaign")
@@ -61,4 +71,7 @@ public class Campaign {
             joinColumns = @JoinColumn(name = "campaign_id"), foreignKey = @ForeignKey(name = "tag_campaign_FK"),
             inverseJoinColumns = @JoinColumn(name = "tag_id") , inverseForeignKey = @ForeignKey(name = "campaign_tag_FK"))
     private Set<Tag> tags;
+
+    @Formula("(select ac.amount from amount_collected ac where ac.campaign_id = ID)")
+    private Integer collectedAmount;
 }

@@ -18,10 +18,4 @@ public class Constant {
 
         public static final String X_LOCALE = "X-Locale";
     }
-
-    @UtilityClass
-    public static final class Service {
-
-        public static final String BASIC_AUTH = "basicAuth";
-    }
 }

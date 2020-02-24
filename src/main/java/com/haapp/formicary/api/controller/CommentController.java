@@ -1,10 +1,11 @@
 package com.haapp.formicary.api.controller;
 
 import com.haapp.formicary.api.message.*;
-import com.haapp.formicary.api.model.Comment;
+import com.haapp.formicary.api.model.CommentApi;
+import com.haapp.formicary.api.model.LikeApi;
 import com.haapp.formicary.config.ApiService;
-import com.haapp.formicary.domain.model.CommentDto;
-import com.haapp.formicary.domain.model.LikeDto;
+import com.haapp.formicary.domain.model.Comment;
+import com.haapp.formicary.domain.model.Like;
 import com.haapp.formicary.domain.service.CommentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,18 +40,18 @@ public class CommentController {
             @PathVariable Long campaignId,
             @ApiParam(value = "comment")
             @RequestBody @Valid CommentRequest request) {
-        var comment = modelMapper.map(request.getComment(), CommentDto.class);
+        var comment = modelMapper.map(request.getComment(), Comment.class);
         comment = commentService.addComment(campaignId, comment);
-        var apiComment = modelMapper.map(comment, com.haapp.formicary.api.model.Comment.class);
+        var apiComment = modelMapper.map(comment, CommentApi.class);
         return new CommentResponse(apiComment);
     }
 
     @ApiOperation(value = "Get comments by campaign", nickname = "getCommentsByCampaign")
-    @GetMapping(value = "/{campaignId}/comments")
+    @GetMapping(value = "/campaigns/{campaignId}/comments")
     @ResponseStatus(OK)
     public CommentsResponse getCommentsByCampaign(@PathVariable Long campaignId) {
         var comments = commentService.findByCampaignId(campaignId);
-        List<Comment> apiComments =  asList(modelMapper.map(comments, Comment[].class));
+        List<CommentApi> apiComments =  asList(modelMapper.map(comments, CommentApi[].class));
         return new CommentsResponse(apiComments);
     }
 
@@ -61,9 +62,9 @@ public class CommentController {
             @PathVariable Long commentId,
             @ApiParam(value = "like")
             @RequestBody @Valid LikeRequest request) {
-        var like = modelMapper.map(request.getLike(), LikeDto.class);
+        var like = modelMapper.map(request.getLike(), Like.class);
         like = commentService.likeComment(commentId, like);
-        var apiLike = modelMapper.map(like, com.haapp.formicary.api.model.Like.class);
+        var apiLike = modelMapper.map(like, LikeApi.class);
         return new LikeResponse(apiLike);
     }
 }

@@ -1,6 +1,6 @@
 package com.haapp.formicary.security.model;
 
-import com.haapp.formicary.domain.model.UserDto;
+import com.haapp.formicary.domain.model.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +18,7 @@ public class JwtUserDetails implements UserDetails {
     private String password;
     private Set<GrantedAuthority> authorities;
 
-    public JwtUserDetails(UserDto userDto) {
+    public JwtUserDetails(User userDto) {
         this.id = userDto.getId();
         this.username = userDto.getEmail();
         this.password = userDto.getPassword();

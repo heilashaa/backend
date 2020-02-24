@@ -27,8 +27,6 @@ public class FileUploadService {
 
     private String s3Key;
 
-    private URL imageUrl;
-
     @Value("${cloud.aws.s3.imagesBucket}")
     private String imagesBucket;
 
@@ -36,7 +34,7 @@ public class FileUploadService {
         this.amazonS3Client = amazonS3Client;
     }
 
-    private void uploadImage(String s3Folder, MultipartFile image) {
+    public String uploadImage(String s3Folder, MultipartFile image) {
         try {
             setS3Key(s3Folder, image.getOriginalFilename());
             PutObjectRequest putObjectRequest = new PutObjectRequest(
@@ -47,7 +45,7 @@ public class FileUploadService {
                     .withCannedAcl(CannedAccessControlList.PublicRead);
             uploadFileTos3bucket(putObjectRequest);
             URL uploadImageUrl = amazonS3Client.getUrl(getImagesBucket(), getS3Key());
-            setImageUrl(uploadImageUrl);
+            return uploadImageUrl.toString();
         } catch (IOException e) {
             throw new ImageUploadException(IMAGE_NOT_UPLOAD);
         }

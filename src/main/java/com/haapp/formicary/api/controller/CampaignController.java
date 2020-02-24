@@ -1,9 +1,11 @@
 package com.haapp.formicary.api.controller;
 
 import com.haapp.formicary.api.message.*;
+import com.haapp.formicary.api.model.CampaignApi;
+import com.haapp.formicary.api.model.RatingApi;
+import com.haapp.formicary.api.model.SearchCampaignsParamsApi;
 import com.haapp.formicary.config.ApiService;
-import com.haapp.formicary.domain.model.CampaignDto;
-import com.haapp.formicary.domain.model.RatingDto;
+import com.haapp.formicary.domain.model.Rating;
 import com.haapp.formicary.domain.service.CampaignService;
 import com.haapp.formicary.domain.service.RatingService;
 import io.swagger.annotations.Api;
@@ -11,11 +13,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.lang.reflect.Type;
+import java.util.List;
 
-import static org.springframework.http.HttpStatus.CREATED;
+import static java.util.Arrays.asList;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -26,43 +31,43 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @ApiService
 public class CampaignController {
 
-    private ModelMapper modelMapper;
-    private CampaignService campaignService;
-    private RatingService ratingService;
+    private final ModelMapper modelMapper;
+    private final CampaignService campaignService;
+    private final RatingService ratingService;
 
-    @ApiOperation(value = "Get article", nickname = "getCampaign")
-    @GetMapping(value = "{campaignId}")
+    @ApiOperation(value = "Fulltext search campaigns", nickname = "searchCampaigns")
+    @GetMapping(value = "/search")
+    @ResponseStatus(OK)
+    public CampaignsResponse search(@RequestParam("searchValue") String searchValue) {
+        var campaigns = campaignService.search(searchValue);
+        List<CampaignApi> apiCampaigns = asList(modelMapper.map(campaigns, CampaignApi[].class));
+        return new CampaignsResponse(apiCampaigns);
+    }
+
+    @ApiOperation(value = "Get campaigns", nickname = "getBySearchParams")
+    @GetMapping
+    @ResponseStatus(OK)
+    public PageResponse<CampaignApi> getBySearchParams(SearchCampaignsParamsApi searchCampaignsParams,
+                                                       @RequestParam(required = false) List<String> sortingParams,
+                                                       @RequestParam(value = "page", required = false, defaultValue = "1") Integer page,
+                                                       @RequestParam(value = "size", required = false, defaultValue = "100") Integer size) {
+
+        var searchParams = modelMapper.map(searchCampaignsParams, com.haapp.formicary.domain.model.SearchCampaignsParams.class);
+        var result = campaignService.findAll(searchParams, sortingParams, page - 1, size);
+        Type pageType = new TypeToken<PageResponse<CampaignApi>>() {
+        }.getType();
+        return modelMapper.map(result, pageType);
+    }
+
+    @ApiOperation(value = "Get campaign", nickname = "getCampaign")
+    @GetMapping(value = "/{campaignId}")
     @ResponseStatus(OK)
     public CampaignResponse getCampaign(@PathVariable Long campaignId) {
         var campaign = campaignService.findByIdRequired(campaignId);
-        var apiCampain = modelMapper.map(campaign, com.haapp.formicary.api.model.Campaign.class);
-        return new CampaignResponse(apiCampain);
-    }
-
-    @ApiOperation(value = "Add new campaign", nickname = "createCampaign")
-    @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    @ResponseStatus(CREATED)
-    public CampaignResponse createCampaign(
-            @ApiParam(value = "campaign")
-            @RequestBody @Valid CampaignRequest request) {
-        var campaign = modelMapper.map(request.getCampaign(), CampaignDto.class);
-        campaign = campaignService.create(campaign);
-        var apiCampaign = modelMapper.map(campaign, com.haapp.formicary.api.model.Campaign.class);
+        var apiCampaign = modelMapper.map(campaign, CampaignApi.class);
         return new CampaignResponse(apiCampaign);
     }
 
-    @ApiOperation(value = "Update campaign", nickname = "updateCampaign")
-    @PutMapping(value = "/{campaignId}", consumes = APPLICATION_JSON_VALUE)
-    @ResponseStatus(OK)
-    public CampaignResponse updateCampaign(
-            @PathVariable Long campaignId,
-            @ApiParam(value = "campaign")
-            @RequestBody @Valid CampaignRequest request) {
-        var campaign = modelMapper.map(request.getCampaign(), CampaignDto.class);
-        campaign = campaignService.update(campaignId, campaign);
-        var apiCampaign = modelMapper.map(campaign, com.haapp.formicary.api.model.Campaign.class);
-        return new CampaignResponse(apiCampaign);
-    }
 
     @ApiOperation(value = "Update rating", nickname = "updateRating")
     @PatchMapping(value = "/{campaignId}/rating")
@@ -71,27 +76,9 @@ public class CampaignController {
             @PathVariable Long campaignId,
             @ApiParam(value = "campaign")
             @RequestBody @Valid RatingRequest request) {
-        var rating = modelMapper.map(request.getRating(), RatingDto.class);
+        var rating = modelMapper.map(request.getRating(), Rating.class);
         rating = ratingService.updateRating(campaignId, rating);
-        var apiRating = modelMapper.map(rating, com.haapp.formicary.api.model.Rating.class);
+        var apiRating = modelMapper.map(rating, RatingApi.class);
         return new RatingResponse(apiRating);
-    }
-
-
-
-    @PostMapping(path = "/search")
-    public CampaignsResponse searchCampaigns(/*@RequestBody SearchDevicesRequest request,*/
-                                           @RequestParam(value = "page", required = false, defaultValue = "1") Integer page,
-                                           @RequestParam(value = "size", required = false) Integer size) {
-      /*  SearchDevicesParams searchParams = mapper.map(request.getSearchDevicesParams(), SearchDevicesParams.class);
-        List<SortingParams> sortingParams = mapper.map(request.getSortingParams(), new ArrayList<>(), SortingParams.class);
-        Page<Device> devices = deviceService.search(searchParams, sortingParams, page - 1, size);
-        SearchDevicesResponse response = new SearchDevicesResponse(
-                mapper.map(devices.getContent(), new ArrayList<>(), com.ots.whoosh_service.api.v0.model.device.Device.class, ADMIN));
-        response.setPageNumber(devices.getNumber() + 1);
-        response.setTotalPages(devices.getTotalPages());
-        response.setTotalSize(devices.getTotalElements());
-        return response;*/
-      return null;
     }
 }

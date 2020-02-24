@@ -30,12 +30,19 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] allowedUrlsForPost = new String[]
+    private static final String[] ALLOWED_POST = new String[]
             {
-            "/api/v1/auth/login",
-            "/api/v1/auth/registration"
+                    "/api/v1/auth/login",
+                    "/api/v1/auth/registration",
+                    "/api/v1/auth/social-login"
             };
 
+    private static final String[] ALLOWED_GET = new String[]
+            {
+                    "/api/v1/campaigns/**",
+                    "/api/v1/articles/**",
+                    "/api/v1/tags/**",
+            };
 
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
 
@@ -65,7 +72,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(new RestAccessDeniedHandler());
     }
 
-
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/v2/api-docs",
@@ -74,7 +80,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**")
-                .antMatchers(HttpMethod.POST, allowedUrlsForPost);
+                .antMatchers(HttpMethod.POST, ALLOWED_POST)
+                .antMatchers(HttpMethod.GET, ALLOWED_GET)
+                .antMatchers(HttpMethod.OPTIONS, "/**");
     }
 
     @Override

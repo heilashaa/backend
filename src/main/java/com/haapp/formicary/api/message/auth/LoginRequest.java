@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message.auth;
 
-import com.haapp.formicary.domain.model.LoginRequestDto;
+import com.haapp.formicary.domain.model.LoginData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +17,5 @@ public class LoginRequest {
 
     @Valid
     @NotNull
-    private LoginRequestDto loginRequestDto;
+    private LoginData loginRequest;
 }

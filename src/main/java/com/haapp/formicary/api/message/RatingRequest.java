@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message;
 
-import com.haapp.formicary.api.model.Rating;
+import com.haapp.formicary.api.model.RatingApi;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 public class RatingRequest {
 
-    private Rating rating;
+    private RatingApi rating;
 }

@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message;
 
-import com.haapp.formicary.api.model.Like;
+import com.haapp.formicary.api.model.LikeApi;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,5 +12,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class LikeRequest {
 
-    private Like like;
+    private LikeApi like;
 }

@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message.auth;
 
-import com.haapp.formicary.domain.model.RegistrationRequestDto;
+import com.haapp.formicary.domain.model.RegistrationData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +17,5 @@ public class RegistrationRequest {
 
     @Valid
     @NotNull
-    private RegistrationRequestDto registrationRequestDto;
+    private RegistrationData registrationRequest;
 }

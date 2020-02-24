@@ -1,14 +1,10 @@
 package com.haapp.formicary.domain.service;
 
-import com.haapp.formicary.domain.model.ArticleDto;
-import com.haapp.formicary.domain.model.CampaignDto;
+import com.haapp.formicary.domain.model.Article;
 import com.haapp.formicary.infrastructure.exception.NotFoundException;
-import com.haapp.formicary.persistence.model.Article;
-import com.haapp.formicary.persistence.model.Campaign;
 import com.haapp.formicary.persistence.repository.ArticleRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,13 +22,13 @@ public class ArticleService {
     final private ArticleRepository articleRepository;
     final private ModelMapper modelMapper;
 
-    public ArticleDto findByIdRequired(Long id){
+    public Article findByIdRequired(Long id){
         var optional = articleRepository.findById(id);
-        return optional.map(article -> modelMapper.map(article, ArticleDto.class))
+        return optional.map(article -> modelMapper.map(article, Article.class))
                 .orElseThrow(()-> new NotFoundException(""));
     }
 
-    public ArticleDto create(Long campaignId, ArticleDto article){
+    public Article create(Long campaignId, Article article){
         if(nonNull(article)) {
             var campaign = campaignService.findByIdRequired(campaignId);
             article.setCampaign(campaign);
@@ -41,16 +37,16 @@ public class ArticleService {
         return null;
     }
 
-    public ArticleDto update(Long id, ArticleDto article){
+    public Article update(Long id, Article article){
         var saved = findByIdRequired(id);
         modelMapper.map(article, saved);
         return save(saved);
     }
 
 
-    public List<ArticleDto> findByCampaignId(Long campaignId){
+    public List<Article> findByCampaignId(Long campaignId){
         var articles = articleRepository.findAllByCampaignId(campaignId);
-        return asList(modelMapper.map(articles, ArticleDto[].class));
+        return asList(modelMapper.map(articles, Article[].class));
     }
 
     public void deleteArticle(Long articleId){
@@ -58,9 +54,9 @@ public class ArticleService {
     }
 
 
-    public ArticleDto save(ArticleDto campaign) {
-        var dataArticle = modelMapper.map(campaign, Article.class);
+    public Article save(Article article) {
+        var dataArticle = modelMapper.map(article, com.haapp.formicary.persistence.model.Article.class);
         dataArticle  = articleRepository.save(dataArticle);
-        return modelMapper.map(dataArticle, ArticleDto.class);
+        return modelMapper.map(dataArticle, Article.class);
     }
 }

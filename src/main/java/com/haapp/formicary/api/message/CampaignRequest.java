@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message;
 
-import com.haapp.formicary.api.model.Campaign;
+import com.haapp.formicary.api.model.CampaignApi;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 public class CampaignRequest {
 
-    private Campaign campaign;
+    private CampaignApi campaign;
 }

@@ -19,6 +19,13 @@ spring:
       max-file-size: 1024KB
       max-request-size: 1024KB
 
+#hibernate search
+hibernate:
+  search:
+    default:
+      directory_provider: filesystem
+      indexBase: /data/index/campains
+
 #AWS S3
 cloud:
   aws:

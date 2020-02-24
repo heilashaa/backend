@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message;
 
-import com.haapp.formicary.api.model.Comment;
+import com.haapp.formicary.api.model.CommentApi;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,5 +12,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CommentResponse extends BaseResponse {
 
-    private Comment comment;
+    private CommentApi comment;
 }

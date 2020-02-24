@@ -1,11 +1,11 @@
 package com.haapp.formicary.config.mapper;
 
-import com.haapp.formicary.domain.model.RatingDto;
+import com.haapp.formicary.domain.model.Rating;
 import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PropertyMapRatingUpdate extends PropertyMap<RatingDto, RatingDto> {
+public class PropertyMapRatingUpdate extends PropertyMap<Rating, Rating> {
 
     @Override
     protected void configure() {

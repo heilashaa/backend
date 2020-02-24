@@ -1,11 +1,11 @@
 package com.haapp.formicary.security.service;
 
+import com.haapp.formicary.domain.model.User;
 import com.haapp.formicary.infrastructure.exception.AuthException;
-import com.haapp.formicary.mapping.UserMapper;
-import com.haapp.formicary.persistence.model.User;
 import com.haapp.formicary.persistence.repository.UserRepository;
 import com.haapp.formicary.security.model.JwtUserDetails;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,11 +18,12 @@ import static com.haapp.formicary.infrastructure.exception.ErrorMessage.USER_NOT
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final ModelMapper modelMapper;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User username = userRepository.findByEmail(s).
+        var dataUser = userRepository.findByEmail(s).
                 orElseThrow(() -> new AuthException(USER_NOT_FOUND));;
-        return new JwtUserDetails(UserMapper.INSTANCE.userToUserDto(username));
+        return new JwtUserDetails(modelMapper.map(dataUser, User.class));
     }
 }

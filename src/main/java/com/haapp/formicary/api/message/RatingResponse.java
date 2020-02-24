@@ -1,6 +1,6 @@
 package com.haapp.formicary.api.message;
 
-import com.haapp.formicary.api.model.Rating;
+import com.haapp.formicary.api.model.RatingApi;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,5 +12,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class RatingResponse extends BaseResponse {
 
-    private Rating rating;
+    private RatingApi rating;
 }

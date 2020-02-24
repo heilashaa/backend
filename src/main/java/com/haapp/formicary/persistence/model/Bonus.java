@@ -26,6 +26,4 @@ public class Bonus {
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "bonus_campaign_FK"))
     private Campaign campaign;
-    @ManyToMany(mappedBy = "bonuses", fetch = FetchType.LAZY)
-    private Set<User> users = new HashSet<>();
 }
