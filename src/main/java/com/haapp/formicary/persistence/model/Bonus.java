@@ -23,7 +23,7 @@ public class Bonus {
     private String name;
     private String description;
     private Integer amount;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "campaign_id", nullable = false, foreignKey = @ForeignKey(name = "bonus_campaign_FK"))
     private Campaign campaign;
 }

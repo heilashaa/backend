@@ -1,12 +1,14 @@
 package com.haapp.formicary.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.haapp.formicary.domain.model.Bonus;
 import com.haapp.formicary.domain.model.User;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import static java.util.Objects.nonNull;
 

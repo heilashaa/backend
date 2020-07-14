@@ -7,5 +7,6 @@ import lombok.Setter;
 @Setter
 public class UserApi {
 
+/*    private Long id;*/
     private String username;
 }

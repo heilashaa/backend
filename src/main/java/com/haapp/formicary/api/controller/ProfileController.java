@@ -74,7 +74,7 @@ public class ProfileController {
     }
 
 
-    @ApiOperation(value = "Get bonuses by user", nickname = "addBonusToUser")
+    @ApiOperation(value = "Add bonus to user", nickname = "addBonusToUser")
     @PostMapping(value = "/{userId}/bonuses/{bonusId}")
     @ResponseStatus(OK)
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or isOwner(#userId)")
@@ -84,7 +84,7 @@ public class ProfileController {
         return new UserBonusResponse(apiBonus);
     }
 
-    @ApiOperation(value = "Get bonuses by user", nickname = "getBonusesByUser")
+    @ApiOperation(value = "Get user bonuses", nickname = "getBonusesByUser")
     @GetMapping(value = "/{userId}/bonuses")
     @ResponseStatus(OK)
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or isOwner(#userId)")

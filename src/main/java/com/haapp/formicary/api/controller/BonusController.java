@@ -87,4 +87,13 @@ public class BonusController {
         bonusService.delete(bonusId);
         return SUCCESS;
     }
+
+    @ApiOperation(value = "Get bonus", nickname = "getBonus")
+    @GetMapping(value = "/bonuses/{bonusId}")
+    @ResponseStatus(OK)
+    public BonusResponse getBonus(@PathVariable Long bonusId) {
+        var bonus = bonusService.findByIdRequired(bonusId);
+        var apiBonus = modelMapper.map(bonus, BonusApi.class);
+        return new BonusResponse(apiBonus);
+    }
 }

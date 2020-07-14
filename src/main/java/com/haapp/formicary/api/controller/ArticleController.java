@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 import static com.haapp.formicary.api.message.ConfirmationResponse.SUCCESS;
 import static java.util.Arrays.asList;
@@ -51,7 +52,10 @@ public class ArticleController {
         article = articleService.create(campaignId, article);
         var apiArticle = modelMapper.map(article, ArticleApi.class);
         return new ArticleResponse(apiArticle);
+
+
     }
+
 
     @ApiOperation(value = "Get article", nickname = "getArticle")
     @GetMapping(value = "/articles/{articleId}")

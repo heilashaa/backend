@@ -35,7 +35,7 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
             String token = Optional.ofNullable(request.getHeader(AuthHelper.AUTHENTICATION_HEADER))
                     .map(header -> header.substring(7)).orElse(null);
             if (Objects.isNull(token)) {
-                throw new BadCredentialsException(TOKEN_NOT_FOUND_IN_REQUEST_HEADER);
+                //throw new BadCredentialsException(TOKEN_NOT_FOUND_IN_REQUEST_HEADER);
             }
             JwtAuthentication authRequest = new JwtAuthentication(token);
             return this.getAuthenticationManager().authenticate(authRequest);

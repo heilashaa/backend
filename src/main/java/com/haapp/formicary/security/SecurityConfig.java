@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] ALLOWED_GET = new String[]
             {
+                    "/management/**",
                     "/api/v1/campaigns/**",
                     "/api/v1/articles/**",
                     "/api/v1/tags/**",
@@ -64,9 +65,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .csrf().disable()
-                .addFilterAfter(
+                /*.addFilterAfter(
                         new JwtAuthenticationFilter(authenticationManagerBean()),
-                        BasicAuthenticationFilter.class)
+                        BasicAuthenticationFilter.class)*/
                 .exceptionHandling()
                 .authenticationEntryPoint(new RestAuthenticationEntryPoint())
                 .accessDeniedHandler(new RestAccessDeniedHandler());
@@ -77,6 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/v2/api-docs",
                 "/configuration/ui",
                 "/swagger-resources/**",
+                "/management/**",
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**")

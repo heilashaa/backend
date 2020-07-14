@@ -22,7 +22,7 @@ public class Category {
     private Long id;
 //    @Size(min = 5)
     private String name;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private Set<Campaign> campaigns = new HashSet<>();
 }
 

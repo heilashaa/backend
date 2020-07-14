@@ -18,6 +18,10 @@ spring:
     multipart:
       max-file-size: 1024KB
       max-request-size: 1024KB
+  kafka:
+    listener:
+
+      missing-topics-fatal: false
 
 #hibernate search
 hibernate:
@@ -26,7 +30,18 @@ hibernate:
       directory_provider: filesystem
       indexBase: /data/index/campains
 
-#AWS S3
+management:
+  server:
+    servlet:
+      context-path: /management
+    port: 8110
+  endpoint:
+    metrics:
+      enabled: false
+  endpoints:
+    web:
+      base-path: /
+
 cloud:
   aws:
     region:
