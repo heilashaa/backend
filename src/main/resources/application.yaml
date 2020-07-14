@@ -45,26 +45,26 @@ management:
 cloud:
   aws:
     region:
-      static: us-east-2
+      static:
     stack:
       auto: false
     credentials:
-      accessKey: AKIAIYFMKY3K7ONV5Y5A
-      secretKey: 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
+      accessKey:
+      secretKey:
     s3:
-      imagesBucket: heilash
-      region: us-east-2
+      imagesBucket:
+      region:
 
 #SOCIAL
   social:
     facebook:
-      appId: 526762058188362
-      appSecret: b01c60f2ef80147051454f4ceadcf1b6
+      appId:
+      appSecret:
     twitter:
-      apiKey: uM2mWowm8xq8o6gp6buywbb51
-      apiSecretKey: GSgplBaE8JJ3N0WkbZHZwRnNvvibTrWJw89AqzeFqBC3BvTgfp
-      accessToken: 1219651235722203136-epn3m5DOQkTj3Ksna6po71medWwPN0
-      accessTokenSecret: 5JQw4p4OgkTXdZTtvXYqDBc3vv1CvE2fkfWSij3pXJMp3
+      apiKey:
+      apiSecretKey:
+      accessToken:
+      accessTokenSecret:
     google:
-      appSecret: 262215497220-ach1sfg32mrlmes6cp7meihp37ijk6oa.apps.googleusercontent.com
-      appId: HDNykArT7aF0FrxXA8VlU8yX
+      appSecret:
+      appId:
